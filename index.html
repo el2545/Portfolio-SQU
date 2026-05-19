@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="El Ghali Sany — Sultan Qaboos University MSc Accounting and Finance admissions portfolio centered on green sukuk for renewable-energy infrastructure in Oman, project finance, DCF/WACC/DSCR/LCOE modelling, ESG accountability, and Islamic capital markets." name="description"/>
+<title>El Ghali Sany | SQU Green Sukuk and Project Finance Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/><style>
+    :root{
+      --paper:#FCFAF4; --sand:#F4E8D0; --wadi-teal:#0F6F73; --khareef-green:#2F7D4A;
+      --frankincense-amber:#B98532; --hajar-grey:#69716D; --tensift-sand:#E9D2AA; --kouz-stone:#8D7F6A; --atlantic-quiet:#1F5D66; --ink:#142033; --muted:#5f6f82;
+      --bg:var(--sand); --line:#dfd1b8; --oman-red:#9f2f32; --oman-green:var(--khareef-green);
+      --oman-gold:var(--frankincense-amber); --deep:#09251d; --soft-green:#eef8f1; --soft-red:#fff4f2;
+      --shadow:0 20px 50px rgba(20,32,51,.10); --radius:24px;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --font:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-ar:"Noto Naskh Arabic", "Cairo", Tahoma, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:84px}
+    body{font-family:var(--font);color:var(--ink);background:
+      radial-gradient(circle at 10% 8%,rgba(47,125,74,.14),transparent 28%),
+      radial-gradient(circle at 90% 4%,rgba(185,133,50,.10),transparent 24%),
+      linear-gradient(135deg,#FCFAF4 0%,#F4E8D0 54%,#EEF7F2 100%);line-height:1.55}
+    body.rtl{font-family:var(--font-ar);direction:rtl;font-size:108%}
+    a{color:inherit} .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+    .skip{position:absolute;left:-999px;top:auto}.skip:focus{left:16px;top:16px;background:var(--oman-green);color:#fff;padding:10px 14px;border-radius:10px;z-index:1000}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(255,253,248,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{max-width:1240px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:260px}.mark{width:48px;height:48px;border-radius:17px;background:linear-gradient(145deg,var(--oman-red),var(--oman-green));color:#fff;display:grid;place-items:center;font-weight:950;box-shadow:0 12px 24px rgba(0,122,61,.18)}
+    .brand strong{display:block;font-size:1rem;line-height:1.15}.brand span{display:block;font-size:.78rem;color:var(--muted);font-weight:700}
+    .nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.nav-links a,.nav-links button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-weight:850;text-decoration:none;font-size:.82rem;color:var(--ink)}
+    .nav-links a:hover,.nav-links button:hover{border-color:var(--oman-green);box-shadow:0 8px 18px rgba(0,122,61,.10)}
+    .lang{color:var(--oman-green)!important}.container{max-width:1240px;margin:auto;padding:22px 20px 44px}.hero{display:grid;grid-template-columns:1.18fr .82fr;gap:18px;align-items:stretch;margin-top:10px}.card,.panel,.metric,.source,.doc,.timeline-item{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    .hero-main{padding:38px;position:relative;overflow:hidden}.hero-main:after{content:"";position:absolute;right:-14%;bottom:-26%;width:420px;height:420px;background:radial-gradient(circle,rgba(0,122,61,.12),transparent 65%);pointer-events:none}.eyebrow{display:inline-flex;gap:8px;align-items:center;margin-bottom:18px;background:var(--soft-green);border:1px solid rgba(0,122,61,.18);color:var(--oman-green);border-radius:999px;padding:8px 12px;font-weight:900;font-size:.8rem}
+    h1{font-size:clamp(2.4rem,5vw,5rem);line-height:.98;letter-spacing:-.065em;margin-bottom:18px;max-width:980px}.rtl h1{letter-spacing:0;line-height:1.18}.grad{background:linear-gradient(110deg,var(--oman-red),var(--oman-green),var(--oman-gold));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.72;color:var(--muted);font-weight:650;max-width:920px}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:7px 10px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:900;color:var(--ink)}.badge.ok{background:var(--soft-green);border-color:rgba(0,122,61,.18);color:var(--oman-green)}.badge.risk{background:var(--soft-red);border-color:rgba(200,16,46,.18);color:var(--oman-red)}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 15px;border-radius:15px;border:1px solid var(--line);background:#fff;font-weight:900;text-decoration:none}.cta.primary{background:linear-gradient(135deg,var(--wadi-teal),var(--deep));color:#fff;border-color:transparent}.hero-side{display:grid;gap:12px}.metric{padding:22px;position:relative;overflow:hidden}.metric:before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--oman-red),var(--oman-green),var(--oman-gold))}.metric b{display:block;font-size:2rem;line-height:1;color:var(--oman-gold);margin:8px 0}.metric span{display:block;color:var(--muted);font-weight:650;line-height:1.55}
+    section{padding:34px 0}.head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:18px}.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;color:var(--oman-green);font-weight:950;margin-bottom:6px}.rtl .kicker{letter-spacing:0}h2{font-size:clamp(1.65rem,3vw,2.8rem);line-height:1.1;letter-spacing:-.04em}.rtl h2{letter-spacing:0;line-height:1.25}.note{max-width:760px;color:var(--muted);font-weight:650;line-height:1.75}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.panel{padding:22px}.panel h3,.source h3,.doc h3{font-size:1.08rem;color:var(--oman-gold);margin-bottom:8px}.panel p,.source p,.doc p,.panel li{color:var(--muted);font-weight:650;line-height:1.68}.panel ul{padding-inline-start:20px;display:grid;gap:8px}.hard-gap{background:linear-gradient(135deg,#10251d,#173b2f);color:#fff;border-radius:28px;padding:28px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.10)}.hard-gap h3{color:#fff;margin-bottom:12px;font-size:1.25rem}.hard-gap p{font-size:1.06rem;line-height:1.72;color:rgba(255,255,255,.88);font-weight:750}.hard-gap mark{background:rgba(255,255,255,.16);color:#fff;border-radius:8px;padding:1px 5px}.matrix{overflow:auto;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}.matrix table{width:100%;border-collapse:collapse;min-width:840px}.matrix th,.matrix td{text-align:left;vertical-align:top;padding:15px;border-bottom:1px solid var(--line)}.rtl .matrix th,.rtl .matrix td{text-align:right}.matrix th{background:#f8f1e5;color:var(--deep);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}.matrix td{color:var(--muted);font-weight:650}.matrix tr:last-child td{border-bottom:0}.equation{font-family:var(--mono);background:#0d1d17;color:#fff;border-radius:18px;padding:16px;overflow:auto;margin:12px 0;font-size:.88rem;line-height:1.6}.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.pillar{padding:18px;border-radius:20px;background:#fff;border:1px solid var(--line)}.pillar b{display:block;color:var(--oman-green);margin-bottom:6px}.pillar span{display:block;color:var(--muted);font-weight:650;line-height:1.55}.timeline{display:grid;gap:10px}.timeline-item{display:grid;grid-template-columns:160px 1fr;gap:14px;padding:16px;align-items:center}.timeline-item b{color:var(--oman-green)}.timeline-item span{color:var(--muted);font-weight:650}.bar{height:32px;border-radius:999px;background:#f3eadb;border:1px solid var(--line);position:relative;overflow:hidden}.fill{position:absolute;inset:4px auto 4px 4px;border-radius:999px;background:linear-gradient(90deg,var(--oman-green),var(--oman-gold));width:var(--w)}.sources{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.source{padding:18px}.source a{display:inline-flex;margin:8px 0 10px;color:var(--oman-green);font-weight:900}.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.doc{padding:18px;min-height:210px}.redline{border-left:5px solid var(--oman-red)}.greenline{border-left:5px solid var(--oman-green)}.footer{background:#0d1d17;color:#fff;margin-top:30px;padding:30px 20px}.footer-inner{max-width:1100px;margin:auto}.footer p{color:rgba(255,255,255,.78);line-height:1.7}.small{font-size:.88rem;color:var(--muted)}
+    @media(max-width:980px){.hero,.grid-2,.grid-3,.grid-4,.pillars,.sources,.docs{grid-template-columns:1fr 1fr}.head{display:block}.note{margin-top:10px}.nav-inner{display:block}.nav-links{margin-top:12px;justify-content:flex-start}.hero-main{padding:26px}}
+    @media(max-width:680px){.hero,.grid-2,.grid-3,.grid-4,.pillars,.sources,.docs{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr}.nav-links a,.nav-links button{width:100%;text-align:center}h1{font-size:2.35rem}.container{padding-inline:14px}.hero-main{padding:22px}}
+    @media print{.nav,.cta-row,.skip{display:none}.container{max-width:none}.card,.panel,.metric,.source,.doc,.timeline-item{box-shadow:none}body{background:#fff}}
+    .omani-context .context-card{padding:24px;border-radius:var(--radius);background:rgba(255,253,248,.86);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .omani-context .context-card p{color:var(--muted);font-weight:650;line-height:1.78;max-width:940px}
+    .capital-route{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;position:relative}
+    .capital-route:before{content:"";position:absolute;left:9%;right:9%;top:50%;height:2px;background:linear-gradient(90deg,var(--wadi-teal),var(--khareef-green),var(--frankincense-amber));opacity:.45;z-index:0}
+    .route-node{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;min-height:78px;display:grid;align-content:center;box-shadow:0 12px 30px rgba(20,32,51,.07)}
+    .route-node b{display:block;color:var(--wadi-teal);font-size:.9rem;margin-bottom:4px}.route-node span{display:block;color:var(--muted);font-weight:700;font-size:.82rem;line-height:1.45}
+    .falaj-grid{background-image:linear-gradient(90deg,rgba(15,111,115,.045) 1px,transparent 1px),linear-gradient(0deg,rgba(185,133,50,.045) 1px,transparent 1px);background-size:38px 38px}
+    .low-rise-line{height:46px;margin-top:16px;border-radius:18px;background:linear-gradient(180deg,transparent 0 43%,rgba(15,111,115,.10) 43% 100%);position:relative;overflow:hidden;border:1px solid rgba(15,111,115,.10)}
+    .low-rise-line:before{content:"";position:absolute;left:4%;right:4%;bottom:12px;height:14px;background:linear-gradient(90deg,transparent 0 4%,rgba(15,111,115,.34) 4% 8%,transparent 8% 12%,rgba(185,133,50,.28) 12% 17%,transparent 17% 24%,rgba(15,111,115,.25) 24% 31%,transparent 31% 38%,rgba(47,125,74,.28) 38% 44%,transparent 44% 53%,rgba(15,111,115,.30) 53% 58%,transparent 58% 66%,rgba(185,133,50,.25) 66% 71%,transparent 71% 100%);border-radius:999px}
+    @media(max-width:760px){.capital-route{grid-template-columns:1fr}.capital-route:before{display:none}}
+
+    .bridge-line{margin-top:14px;padding:14px 16px;border-radius:18px;border:1px solid rgba(185,133,50,.22);background:linear-gradient(135deg,rgba(233,210,170,.30),rgba(255,255,255,.66));color:var(--muted);font-weight:650;line-height:1.72}
+    .bridge-line b{color:var(--wadi-teal)}
+    .validation-gates{margin-top:16px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+    .validation-gate{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px;min-height:92px;box-shadow:0 10px 24px rgba(20,32,51,.06)}
+    .validation-gate b{display:block;color:var(--wadi-teal);font-size:.78rem;margin-bottom:6px;line-height:1.25}.validation-gate span{display:block;color:var(--muted);font-size:.72rem;font-weight:700;line-height:1.4}
+    @media(max-width:1100px){.validation-gates{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:680px){.validation-gates{grid-template-columns:1fr}}
+
+
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+    .project-card{background:rgba(255,253,248,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;gap:14px}
+    .project-card h3{font-size:1.25rem;color:var(--oman-green)}
+    .project-card .status{display:inline-flex;align-items:center;gap:8px;width:max-content;border:1px solid rgba(0,122,61,.20);background:var(--soft-green);color:var(--oman-green);font-weight:900;border-radius:999px;padding:7px 11px;font-size:.78rem}
+    .project-card ul{padding-inline-start:20px;color:var(--muted);font-weight:650;display:grid;gap:8px}
+    .project-card .metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .project-card .mini-metric{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff}
+    .project-card .mini-metric b{display:block;font-size:1.15rem;color:var(--oman-red);line-height:1.05}
+    .project-card .mini-metric span{display:block;color:var(--muted);font-size:.82rem;font-weight:750;margin-top:4px}
+    .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+    .project-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:14px;border:1px solid var(--line);background:#fff;padding:10px 13px;text-decoration:none;font-weight:900;color:var(--ink)}
+    .project-actions a.primary{background:linear-gradient(135deg,var(--wadi-teal),#06472f);border-color:transparent;color:#fff}
+    .transfer-panel{margin-top:18px;background:linear-gradient(135deg,rgba(0,122,61,.08),rgba(183,138,42,.08));border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .transfer-panel h3{color:var(--oman-gold);margin-bottom:8px}
+    .transfer-panel p{color:var(--muted);font-weight:650;line-height:1.75}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sumo-map:after{content:"Animation reduced by system preference";position:absolute;right:12px;bottom:12px;background:rgba(0,12,6,.82);border:1px solid #1b664b;border-radius:12px;padding:8px 10px;color:#93bca3;font-size:.68rem}}
+
+:root{--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;}
+
+.egs-sumo-shell {
+ background: #050505;
+ color: #E8FCEE;
+ border: 1px solid #004400;
+ font-family: var(--font-mono);
+}
+.egs-sumo-toolbar {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ padding: 7px;
+ border-bottom: 1px solid #004400;
+ background: #071107;
+}
+.egs-mode-btn,
+.egs-zone-btn,
+.egs-control-btn {
+ border: 1px solid #004400;
+ background: #101b10;
+ color: #75a875;
+ border-radius: 3px;
+ padding: 5px 9px;
+ font-family: var(--font-mono);
+ font-size: 10px;
+ cursor: pointer;
+ line-height: 1.15;
+}
+.egs-mode-btn:hover,
+.egs-zone-btn:hover,
+.egs-control-btn:hover { color: #00FF88; border-color: #00AA55; }
+.egs-mode-btn.active,
+.egs-zone-btn.active {
+ background: rgba(0,255,136,.12);
+ color: var(--tc, #00FF88);
+ border-color: var(--tc, #00FF88);
+ box-shadow: inset 0 -2px 0 var(--tc, #00FF88);
+}
+.egs-sumo-grid {
+ display: grid;
+ grid-template-columns: minmax(0, 1fr) 220px;
+ min-height: 430px;
+}
+.egs-map-wrap { position: relative; min-height: 430px; background: #0A0A0A; }
+#egsSumoMap { position:absolute; inset:0; z-index:1; min-height:430px; }
+#egsTrafficCanvas { position:absolute; inset:0; z-index:500; width:100%; height:100%; pointer-events:none; }
+.egs-map-badge {
+ position: absolute;
+ z-index: 700;
+ top: 10px; left: 10px;
+ max-width: calc(100% - 20px);
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 7px 9px;
+ color: #00FF88;
+ pointer-events: none;
+}
+.egs-map-badge strong { display:block; font-size: 11px; margin-bottom:2px; }
+.egs-map-badge span { display:block; font-size: 9px; color:#77aa77; line-height:1.35; }
+.egs-legend {
+ position: absolute;
+ z-index: 700;
+ left: 10px; bottom: 10px;
+ display:flex; gap:8px; flex-wrap:wrap;
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 6px 8px;
+ font-size: 9px;
+ color:#77aa77;
+ pointer-events:none;
+}
+.egs-dot { display:inline-block; width:10px; height:10px; border-radius:99px; margin-right:4px; vertical-align:-1px; }
+.egs-dot.green { background:#00FF88; }
+.egs-dot.yellow { background:#FFD700; }
+.egs-dot.red { background:#FF3355; }
+.egs-side {
+ background: #050505;
+ border-left: 1px solid #004400;
+ display:flex;
+ flex-direction:column;
+}
+.egs-kpis { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #004400; }
+.egs-kpi { padding:8px 7px; border-right:1px solid #004400; border-bottom:1px solid #004400; text-align:center; }
+.egs-kpi:nth-child(2n) { border-right:none; }
+.egs-kpi-label { color:#446644; font-size:8px; margin-bottom:3px; }
+.egs-kpi-val { color:#00FF88; font-size:18px; font-weight:700; line-height:1; }
+.egs-controls { padding:8px; border-bottom:1px solid #004400; }
+.egs-control-row { margin-bottom:8px; }
+.egs-control-row label { display:block; color:#668866; font-size:8px; margin-bottom:3px; }
+.egs-control-row input[type="range"] { width:100%; accent-color:#00FF88; }
+.egs-control-buttons { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px; }
+.egs-note { padding:8px; color:#668866; font-size:9px; line-height:1.5; overflow-y:auto; }
+.egs-hidden { display:none !important; }
+.egs-link-row { display:flex; gap:5px; flex-wrap:wrap; padding:7px; border-top:1px solid #004400; }
+.egs-small-tag { border:1px solid #004400; color:#668866; padding:2px 6px; border-radius:2px; font-size:8px; }
+@media (max-width: 760px) {
+ .egs-sumo-grid { grid-template-columns: 1fr; }
+ .egs-side { border-left:none; border-top:1px solid #004400; }
+ .egs-map-wrap, #egsSumoMap { min-height: 360px; }
+}
+
+#sumo-dashboard{
+ margin-top:18px;
+ overflow:hidden;
+}
+#sumo-dashboard .ph{
+ padding:10px 14px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ border-radius:20px 20px 0 0;
+ min-height:48px;
+}
+#sumo-dashboard .ph-en{
+ font-size:.72rem;
+ font-weight:700;
+ white-space:normal;
+}
+#sumo-dashboard .pb{
+ border-radius:0 0 20px 20px;
+ overflow:hidden;
+}
+body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
+
+    :root{--font-en:var(--font);}
+
+
+
+    body.rtl{font-family:var(--font-ar);text-align:right;letter-spacing:0;}
+    body.rtl .brand{flex-direction:row-reverse;text-align:right;}
+    body.rtl .nav-links{justify-content:flex-start;}
+    body.rtl .head{direction:rtl;}
+    body.rtl .kicker{text-transform:none;}
+    body.rtl .matrix table{direction:rtl;}
+    body.rtl .matrix th, body.rtl .matrix td{text-align:right;}
+    body.rtl .equation, body.rtl #sumo-dashboard, body.rtl .ltr{direction:ltr;unicode-bidi:isolate;text-align:left;}
+    body.rtl .source a{direction:ltr;unicode-bidi:isolate;}
+    body.rtl .project-actions{justify-content:flex-start;}
+    body.rtl .redline{border-left:0;border-right:5px solid var(--oman-red);}
+    body.rtl .greenline{border-left:0;border-right:5px solid var(--oman-green);}
+    body.rtl .egs-legend span, body.rtl .egs-map-badge span, body.rtl .egs-map-badge strong{direction:rtl;text-align:right;}
+</style>
+</head>
+<body>
+<a class="skip" data-ar="تجاوز إلى المحتوى الرئيسي" data-en="Skip to content" href="#main">Skip to content</a>
+<nav aria-label="Portfolio navigation" class="nav">
+<div class="nav-inner">
+<a aria-label="El Ghali Sany SQU portfolio home" class="brand" href="#top">
+<div class="mark">SQU</div>
+<div><strong data-ar="الغالي ساني" data-en="El Ghali Sany">El Ghali Sany</strong><span data-ar="محفظة جامعة السلطان قابوس · الصكوك الخضراء، تمويل المشاريع، وأسواق رأس المال الإسلامية" data-en="SQU portfolio · Green sukuk, project finance, Islamic capital markets">SQU portfolio · Green sukuk, project finance, Islamic capital markets</span></div>
+</a>
+<div class="nav-links"><button aria-label="Switch language" aria-pressed="false" class="lang" id="langBtn" type="button">AR</button></div>
+</div>
+</nav>
+<main class="container" id="main">
+<section aria-labelledby="heroTitle" class="hero" id="top">
+<div class="card hero-main">
+<div class="eyebrow" data-ar="ماجستير العلوم في المحاسبة والتمويل بجامعة السلطان قابوس · صكوك خضراء · تمويل المشاريع · مساءلة الاستدامة والحوكمة" data-en="SQU MSc Accounting &amp; Finance · Green sukuk · Project finance · ESG accountability">SQU MSc Accounting &amp; Finance · Green sukuk · Project finance · ESG accountability</div>
+<h1 id="heroTitle"><span data-ar="الصكوك الخضراء لتمويل البنية التحتية للطاقة المتجددة في" data-en="Green sukuk for renewable-energy infrastructure in">Green sukuk for renewable-energy infrastructure in</span> <span class="grad" data-ar="سلطنة عُمان." data-en="Oman.">Oman.</span></h1>
+<p class="lead" data-ar="تتمحور هذه المحفظة حول مقترحي البحثي لجامعة السلطان قابوس: اختبار ما إذا كانت الصكوك الخضراء قادرة على تمويل مشاريع الطاقة المتجددة على مستوى المرافق في سلطنة عُمان من دون إضعاف قابلية التمويل، أو مساءلة الاستدامة والحوكمة، أو انضباط الحوكمة الشرعية. الأطروحة تقودها المالية أولاً: نمذجة DCF، وتقدير WACC، واختبار DSCR وLCOE وNPV وIRR، وتحليل الحساسية، ومقارنة الصكوك بالدين التقليدي، ومنطق الإفصاح وفق IFRS S1/S2، وانضباط الانبعاثات المتجنبة وفق GHG Protocol، وحوكمة واعية بمعايير AAOIFI." data-en="This portfolio presents my SQU research proposal on whether green sukuk can finance utility-scale renewable-energy infrastructure in Oman while preserving project bankability, ESG accountability, and Shariah-governance discipline. The thesis is finance-first: DCF, WACC, DSCR, LCOE, NPV, IRR, sensitivity testing, sukuk-versus-debt comparison, IFRS S1/S2 disclosure logic, GHG Protocol avoided-emissions discipline, and AAOIFI-aware governance.">This portfolio presents my SQU research proposal on whether green sukuk can finance utility-scale renewable-energy infrastructure in Oman while preserving project bankability, ESG accountability, and Shariah-governance discipline. The thesis is finance-first: DCF, WACC, DSCR, LCOE, NPV, IRR, sensitivity testing, sukuk-versus-debt comparison, IFRS S1/S2 disclosure logic, GHG Protocol avoided-emissions discipline, and AAOIFI-aware governance.</p>
+<div class="badges">
+<span class="badge ok" data-ar="الصكوك الخضراء وتمويل الطاقة المتجددة" data-en="Green sukuk and renewable energy finance">Green sukuk and renewable energy finance</span>
+<span class="badge ok" data-ar="كلية الاقتصاد والعلوم السياسية · المحاسبة والتمويل" data-en="SQU CEPS · Accounting &amp; Finance">SQU CEPS · Accounting &amp; Finance</span>
+<span class="badge ok" data-ar="صلة مباشرة بتخصيص رأس المال لدى جهاز الاستثمار العُماني ورؤية عُمان 2040" data-en="OIA/Vision 2040 capital-allocation relevance">OIA/Vision 2040 capital-allocation relevance</span>
+<span class="badge risk" data-ar="نطاق بحثي عُماني" data-en="Omani institutional focus">Omani institutional focus</span></div>
+<div class="cta-row">
+<a class="cta primary" data-ar="فتح المقترح البحثي" data-en="Open research proposal" href="El_Ghali_Sany_SQU_Green_Sukuk_Research_Proposal.pdf">Open research proposal</a>
+<a class="cta" data-ar="قراءة فجوة البحث المحددة" data-en="Read the negative gap" href="#gap">Read the negative gap</a>
+<a class="cta" data-ar="مراجعة النموذج المالي" data-en="Inspect finance model" href="#finance">Inspect finance model</a>
+</div>
+</div>
+<aside aria-label="Key evidence metrics" class="hero-side">
+<article class="metric"><b class="ltr">Green Sukuk</b><span data-ar="المقترح البحثي الأساسي لجامعة السلطان قابوس: تمويل البنية التحتية للطاقة المتجددة، وأسواق رأس المال الإسلامية، ومحاسبة الاستدامة والحوكمة، وقابلية التمويل على مستوى المشروع." data-en="Primary SQU proposal: renewable-energy infrastructure finance, Islamic capital markets, ESG accounting, and project-level bankability.">Primary SQU proposal: renewable-energy infrastructure finance, Islamic capital markets, ESG accounting, and project-level bankability.</span></article>
+<article class="metric"><b class="ltr">DCF · WACC · DSCR</b><span data-ar="محور التقييم الأساسي: تُختبر الجدوى المالية أولاً قبل اعتبار أي وصف أخضر أو شرعي ذا معنى اقتصادي." data-en="Core valuation spine: financial viability is tested before any green or Shariah label is treated as economically meaningful.">Core valuation spine: financial viability is tested before any green or Shariah label is treated as economically meaningful.</span></article>
+<article class="metric"><b class="ltr">IFRS · GHG · AAOIFI</b><span data-ar="الإفصاح والحوكمة: لا تُقبل ادعاءات الاستدامة إلا بحدود وخطوط أساس قابلة للتدقيق، وتقارير تخصيص واضحة، وانضباط في الحوكمة الشرعية." data-en="Disclosure and governance: sustainability claims require auditable baselines, boundaries, allocation reporting, and Shariah-governance discipline.">Disclosure and governance: sustainability claims require auditable baselines, boundaries, allocation reporting, and Shariah-governance discipline.</span></article>
+<article class="metric"><b class="ltr">12 months</b><span data-ar="خطة التنفيذ: مصفوفة أدلة، وتسلسل هرمي للبيانات العامة، ونموذج DCF، وبطاقة تقييم ESG، ومقارنة الصكوك بالدين، واختبارات الحساسية، والتحقق عبر الخبراء، ثم الأطروحة النهائية." data-en="Execution plan: evidence matrix, public-data hierarchy, DCF model, ESG scorecard, sukuk/debt comparison, sensitivity tests, expert validation, final thesis.">Execution plan: evidence matrix, public-data hierarchy, DCF model, ESG scorecard, sukuk/debt comparison, sensitivity tests, expert validation, final thesis.</span></article>
+</aside>
+</section>
+<section aria-labelledby="fitTitle" id="fit">
+<div class="head"><div><div class="kicker" data-ar="01 — الملاءمة مع جامعة السلطان قابوس" data-en="01 — SQU fit">01 — SQU fit</div><h2 data-ar="المحاسبة والتمويل أولاً؛ والعمل التقني يدعم الملف البحثي." data-en="Accounting and Finance first; technical work supports the research profile." id="fitTitle">Accounting and Finance first; technical work supports the research profile.</h2></div><p class="note" data-ar="تقدّم هذه المحفظة الأكاديمية ملفاً بحثياً مالياً موجهاً إلى جامعة السلطان قابوس. وتدعم الأعمال النمذجية السابقة قوة الملف، بينما تتمحور الأطروحة المقترحة حول الصكوك الخضراء، وتمويل المشاريع، ومساءلة الاستدامة والحوكمة في سلطنة عُمان." data-en="This academic portfolio presents a finance thesis profile for SQU. Previous modelling work supports the application, while the proposed thesis focuses on green sukuk, project finance, and ESG accountability in Oman.">This academic portfolio presents a finance thesis profile for SQU. Previous modelling work supports the application, while the proposed thesis focuses on green sukuk, project finance, and ESG accountability in Oman.</p></div>
+<div class="grid-3">
+<article class="panel greenline"><h3 data-ar="مسار التمويل" data-en="Finance pathway">Finance pathway</h3><p data-ar="ينسجم المقترح مع تمويل الشركات، وتمويل المشاريع، والاقتصاد القياسي المالي، وتخصيص رأس المال، ونمذجة المخاطر من خلال DCF وWACC وDSCR وLCOE وتحليل السيناريوهات ومقارنة الصكوك بالدين التقليدي." data-en="The proposal fits corporate finance, project finance, financial econometrics, capital allocation, and risk modelling through DCF, WACC, DSCR, LCOE, scenario analysis, and sukuk-versus-debt comparison.">The proposal fits corporate finance, project finance, financial econometrics, capital allocation, and risk modelling through DCF, WACC, DSCR, LCOE, scenario analysis, and sukuk-versus-debt comparison.</p></article>
+<article class="panel greenline"><h3 data-ar="مسار المحاسبة" data-en="Accounting pathway">Accounting pathway</h3><p data-ar="يربط مسار المحاسبة مصداقية الاستدامة والحوكمة بمعايير IFRS S1/S2، وحدود الانبعاثات المتجنبة، وتقارير التخصيص، ومنطق انخفاض القيمة وتحليل الحساسية، وانضباط الإفصاح، بدلاً من ادعاءات استدامة عامة وغير قابلة للتدقيق." data-en="The accounting pathway connects ESG credibility to IFRS S1/S2, avoided-emissions boundaries, allocation reporting, impairment/sensitivity logic, and disclosure discipline rather than vague sustainability claims.">The accounting pathway connects ESG credibility to IFRS S1/S2, avoided-emissions boundaries, allocation reporting, impairment/sensitivity logic, and disclosure discipline rather than vague sustainability claims.</p></article>
+<article class="panel greenline"><h3 data-ar="مسار التمويل الإسلامي" data-en="Islamic finance pathway">Islamic finance pathway</h3><p data-ar="تُعامل الصكوك الخضراء بوصفها هيكلاً تمويلياً له معدل ربح، وأجل، وتكلفة إصدار، وحوكمة شرعية، وقاعدة مستثمرين، وقيود لاستخدام المتحصلات، والتزامات إفصاح، لا بوصفها تسمية ترويجية." data-en="Green sukuk are treated as a financing structure with profit rate, tenor, issuance cost, Shariah governance, investor base, use-of-proceeds restrictions, and reporting duties—not as a promotional label.">Green sukuk are treated as a financing structure with profit rate, tenor, issuance cost, Shariah governance, investor base, use-of-proceeds restrictions, and reporting duties—not as a promotional label.</p></article>
+</div>
+</section>
+<section aria-labelledby="contextTitle" class="omani-context" id="context">
+<div class="head"><div><div class="kicker" data-ar="02 — السياق العُماني" data-en="02 — Omani context">02 — Omani context</div><h2 data-ar="عرض مالي بلغة بصرية عُمانية هادئة." data-en="Finance presented through a restrained Omani visual language." id="contextTitle">Finance presented through a restrained Omani visual language.</h2></div><p class="note" data-ar="الاختيارات البصرية هنا لا تُعامل التراث كزخرفة، بل كمنطق تنظيم: تدفق الموارد، وضبط المخاطر، وهدوء العرض المؤسسي." data-en="The visual choices treat heritage as order rather than ornament: resource flow, risk discipline, and institutional restraint.">The visual choices treat heritage as order rather than ornament: resource flow, risk discipline, and institutional restraint.</p></div>
+<div class="context-card falaj-grid" data-cycle="dour" data-origin="tensift-kouz">
+<p data-ar="تعتمد الواجهة لغة منخفضة الصخب: تكوينات مندمجة مع المشهد، ومخططات لتدفق الموارد، ومسار واضح من هيكل التمويل إلى قابلية التمويل والإفصاح وثقة المستثمر. يخدم ذلك موضوع البحث: تخصيص رأس المال بانضباط، واستدامة طويلة الأجل، وأدلة قابلة للتحقق." data-en="The interface uses a quiet visual grammar: landscape-integrated forms, resource-flow diagrams, and a clear route from financing structure to bankability, disclosure discipline, and investor confidence. This supports the research theme of disciplined capital allocation, long-term stewardship, and verifiable sustainability evidence.">The interface uses a quiet visual grammar: landscape-integrated forms, resource-flow diagrams, and a clear route from financing structure to bankability, disclosure discipline, and investor confidence. This supports the research theme of disciplined capital allocation, long-term stewardship, and verifiable sustainability evidence.</p>
+<p class="bridge-line" data-ar="تظل خلفية الباحث المغربية جسراً هادئاً لا عرضاً زخرفياً: تُقدَّم المالية هنا بوصفها انضباطاً في تداول الموارد والثقة والأدلة بين المؤسسات، من الخبرة الأطلسية إلى سياق أسواق رأس المال العُمانية." data-en="My Moroccan background remains a quiet bridge rather than a decorative claim: finance is presented here as the disciplined circulation of resources, trust, and evidence across institutions, from Atlantic analytical training to Oman’s capital-market context.">My Moroccan background remains a quiet bridge rather than a decorative claim: finance is presented here as the disciplined circulation of resources, trust, and evidence across institutions, from Atlantic analytical training to Oman’s capital-market context.</p>
+<div aria-label="Capital route from financing structure to investor confidence" class="capital-route">
+<div class="route-node"><b data-ar="هيكل التمويل" data-en="Financing structure">Financing structure</b><span data-ar="الصكوك، الأجل، معدل الربح، الرسوم" data-en="sukuk, tenor, profit rate, fees">sukuk, tenor, profit rate, fees</span></div>
+<div class="route-node"><b data-ar="تدفقات المشروع" data-en="Project cash flows">Project cash flows</b><span data-ar="CAPEX وOPEX والتعرفة والإنتاج" data-en="CAPEX, OPEX, tariff, output">CAPEX, OPEX, tariff, output</span></div>
+<div class="route-node"><b data-ar="اختبار القابلية" data-en="Bankability test">Bankability test</b><span data-ar="NPV وWACC وDSCR وLCOE" data-en="NPV, WACC, DSCR, LCOE">NPV, WACC, DSCR, LCOE</span></div>
+<div class="route-node"><b data-ar="ثقة المستثمر" data-en="Investor confidence">Investor confidence</b><span data-ar="إفصاح، حوكمة، دليل أثر" data-en="disclosure, governance, impact evidence">disclosure, governance, impact evidence</span></div>
+</div>
+<div aria-hidden="true" class="low-rise-line"></div>
+</div>
+</section>
+
+<section aria-labelledby="projectsTitle" id="projects">
+<div class="head"><div><div class="kicker" data-ar="03 — المقترح والأعمال الأكاديمية" data-en="03 — Proposal and academic work">03 — Proposal and academic work</div><h2 data-ar="المقترح البحثي هو الوثيقة الأساسية، وتدعمه الأعمال المنجزة." data-en="The research proposal is the core document; completed work supports it." id="projectsTitle">The research proposal is the core document; completed work supports it.</h2></div><p class="note" data-ar="يجمع الملف بين مقترح الصكوك الخضراء لجامعة السلطان قابوس، وورقة كمية لترتيب الاستثمارات، ومشروع تطبيقي يجمع بين CAPEX وOPEX وSUMO وتحليل الربحية." data-en="The file combines the SQU green-sukuk proposal, a quantitative investment-scoring paper, and one applied CAPEX/OPEX/SUMO profitability project.">The file combines the SQU green-sukuk proposal, a quantitative investment-scoring paper, and one applied CAPEX/OPEX/SUMO profitability project.</p></div>
+<div class="project-grid">
+<article class="project-card">
+<span class="status" data-ar="مقترح بحثي · الوثيقة الأساسية" data-en="Research proposal · core document">Research proposal · core document</span>
+<h3 data-ar="الصكوك الخضراء لتمويل البنية التحتية للطاقة المتجددة في عُمان" data-en="Green Sukuk for Renewable-Energy Infrastructure in Oman">Green Sukuk for Renewable-Energy Infrastructure in Oman</h3>
+<p data-ar="مقترح موجه إلى ماجستير المحاسبة والتمويل بجامعة السلطان قابوس. يختبر قابلية تمويل مشاريع الطاقة المتجددة عبر DCF وWACC وDSCR وLCOE وNPV وIRR، مع بطاقة ESG ومقارنة بين الصكوك الخضراء والدين التقليدي." data-en="Proposal for SQU MSc Accounting and Finance. It tests renewable-energy project bankability through DCF, WACC, DSCR, LCOE, NPV and IRR, with an ESG scorecard and a green-sukuk versus conventional-debt comparison.">Proposal for SQU MSc Accounting and Finance. It tests renewable-energy project bankability through DCF, WACC, DSCR, LCOE, NPV and IRR, with an ESG scorecard and a green-sukuk versus conventional-debt comparison.</p>
+<div class="metric-strip"><div class="mini-metric"><b>31</b><span data-ar="صفحة" data-en="pages">pages</span></div><div class="mini-metric"><b>12</b><span data-ar="خطة شهرية" data-en="month plan">month plan</span></div><div class="mini-metric"><b>PDF</b><span data-ar="نسخة قراءة" data-en="reading copy">reading copy</span></div></div>
+<div class="project-actions"><a class="primary" data-ar="فتح المقترح" data-en="Open proposal" href="El_Ghali_Sany_SQU_Green_Sukuk_Research_Proposal.pdf">Open proposal</a></div>
+</article>
+
+<article class="project-card">
+<span class="status" data-ar="ورقة عمل منجزة · دليل في المالية الكمية" data-en="Completed working paper · quantitative finance evidence">Completed working paper · quantitative finance evidence</span>
+<h3 data-ar="ترتيب استثمارات المدن الذكية تحت مخاطر الكربون والطاقة والجغرافيا الاقتصادية" data-en="Investment Scoring for Smart Cities under Carbon, Energy, and Geoeconomic Risk">Investment Scoring for Smart Cities under Carbon, Energy, and Geoeconomic Risk</h3>
+<p data-ar="تُستخدم في هذه المحفظة كدليل على بناء النماذج الكمية: تنبؤ XGBoost، وDNPV المعدل بالكربون، وتقييم الخيارات الحقيقية، وأوزان Fuzzy-AHP/MEREC، وترتيب AROMAN، واختبار Wilcoxon، وفحوص Spearman، والانحدار اللوحي، ومنطق GARCH-MIDAS." data-en="Used in this portfolio as proof of quantitative model-building: XGBoost forecasting, carbon-adjusted DNPV, Real Options valuation, Fuzzy-AHP/MEREC weighting, AROMAN ranking, Wilcoxon testing, Spearman checks, panel regression, and GARCH-MIDAS logic.">Used in this portfolio as proof of quantitative model-building: XGBoost forecasting, carbon-adjusted DNPV, Real Options valuation, Fuzzy-AHP/MEREC weighting, AROMAN ranking, Wilcoxon testing, Spearman checks, panel regression, and GARCH-MIDAS logic.</p>
+<div class="metric-strip"><div class="mini-metric"><b>45.8%</b><span data-ar="انخفاض MAE مقارنةً بنموذج Ridge" data-en="MAE reduction versus Ridge">MAE reduction versus Ridge</span></div><div class="mini-metric"><b>25</b><span data-ar="مصفوفة ترتيب المشاريع" data-en="project scoring matrix">project scoring matrix</span></div><div class="mini-metric"><b>3,547</b><span data-ar="مشاهدات تحقق من WDI/ESG" data-en="WDI/ESG validation observations">WDI/ESG validation observations</span></div></div>
+<div class="project-actions"><a class="primary" data-ar="فتح ملف PDF" data-en="Open PDF" href="El_Ghali_Sany_Investment_Scoring_for_Smart_Cities.pdf">Open PDF</a></div>
+</article>
+<article class="project-card">
+<span class="status" data-ar="مشروع تخرج منجز · تقييم استثماري تطبيقي" data-en="Completed PFE · applied investment appraisal">Completed PFE · applied investment appraisal</span>
+<h3 data-ar="نموذج ربحية DOOH في الدار البيضاء باستخدام SUMO/GIS" data-en="Casablanca DOOH Profitability and SUMO/GIS Model">Casablanca DOOH Profitability and SUMO/GIS Model</h3>
+<p data-ar="يوضح هذا المشروع التقييم المالي التطبيقي من خلال محاكاة حركة المرور، والخرائط الجغرافية، وCAPEX وOPEX وTCO وROI، والقيود التنظيمية، ومؤشر IRP لربحية المواقع." data-en="This project demonstrates applied financial appraisal through traffic simulation, GIS mapping, CAPEX, OPEX, TCO, ROI, regulatory constraints, and an IRP index for location-level profitability.">This project demonstrates applied financial appraisal through traffic simulation, GIS mapping, CAPEX, OPEX, TCO, ROI, regulatory constraints, and an IRP index for location-level profitability.</p>
+<div class="metric-strip"><div class="mini-metric"><b>SUMO</b><span data-ar="نمذجة حركة المرور" data-en="traffic modelling">traffic modelling</span></div><div class="mini-metric"><b>CAPEX</b><span data-ar="نموذج تكلفة الاستثمار" data-en="investment cost model">investment cost model</span></div><div class="mini-metric"><b>IRP</b><span data-ar="مؤشر الربحية" data-en="profitability index">profitability index</span></div></div>
+<div class="project-actions"><a class="primary" data-ar="فتح ملف PDF" data-en="Open PDF" href="El_Ghali_Sany_PFE_Casablanca_DOOH_Profitability.pdf">Open PDF</a><a data-ar="فتح نموذج SUMO/GIS" data-en="Open SUMO/GIS model" href="#sumo">Open SUMO/GIS model</a></div>
+</article>
+</div>
+<div class="transfer-panel"><h3 data-ar="الملاءمة التحليلية" data-en="Analytical relevance">Analytical relevance</h3><p data-ar="تدعم الدراسات السابقة هذا الملف من خلال إبراز الخبرة في النماذج المالية القابلة للتدقيق، والبيانات غير الكاملة، ومتغيرات القرار، والحدود المنهجية، وأدلة دعم القرار." data-en="The previous studies support the application by showing experience with auditable financial models, imperfect data, decision variables, methodological limitations, and decision-support evidence.">The previous studies support the application by showing experience with auditable financial models, imperfect data, decision variables, methodological limitations, and decision-support evidence.</p></div>
+</section>
+<section aria-labelledby="sumoTitle" id="sumo">
+<div class="head"><div><div class="kicker" data-ar="04 — مثال نمذجة SUMO/GIS" data-en="04 — SUMO/GIS modelling example">04 — SUMO/GIS modelling example</div><h2 data-ar="نمذجة SUMO/GIS من دراسة الدار البيضاء." data-en="SUMO/GIS modelling from the Casablanca study." id="sumoTitle">SUMO/GIS modelling from the Casablanca study.</h2></div><p class="note" data-ar="يعرض هذا المثال سير عمل Leaflet/SUMO الذي طُوّر في دراسة ربحية إعلانات الدار البيضاء، ويغطي المحاكاة والتحويل المكاني للبيانات ومنطق تقييم الاستثمار." data-en="This example presents the Leaflet/SUMO workflow developed for the Casablanca DOOH profitability study, covering simulation, spatial transformation, and investment-appraisal logic.">This example presents the Leaflet/SUMO workflow developed for the Casablanca DOOH profitability study, covering simulation, spatial transformation, and investment-appraisal logic.</p></div>
+<div aria-label="Leaflet SUMO traffic simulation dashboard" class="egs-sumo-shell panel" id="sumo-dashboard">
+<div class="ph"><b data-ar="لوحة منهجية SUMO/GIS" data-en="SUMO/GIS method panel">SUMO/GIS method panel</b><span class="ph-en" data-ar="نموذج محاكاة حركة المرور في الدار البيضاء من مشروع نهاية الدراسة." data-en="Casablanca traffic simulation model from the final-year project.">Casablanca traffic simulation model from the final-year project.</span></div>
+<div class="pb">
+<div class="egs-sumo-toolbar"><button class="egs-mode-btn active" data-ar="خريطة حرارية" data-egs-mode="heatmap" data-en="Heatmap">Heatmap</button><button class="egs-mode-btn" data-ar="محاكاة" data-egs-mode="simulation" data-en="Simulation">Simulation</button><button class="egs-zone-btn active" data-ar="المعاريف" data-egs-zone="maarif" data-en="Maârif">Maârif</button><button class="egs-zone-btn" data-ar="حي الحسني" data-egs-zone="hay_hassani" data-en="Hay Hassani">Hay Hassani</button><button class="egs-zone-btn" data-ar="بن مسيك" data-egs-zone="ben_msick" data-en="Ben M'Sick">Ben M'Sick</button><button class="egs-zone-btn" data-ar="سيدي معروف" data-egs-zone="sidi_maarouf" data-en="Sidi Maârouf">Sidi Maârouf</button><button class="egs-zone-btn" data-ar="شارع محمد الخامس" data-egs-zone="bd_mohammed_v" data-en="Bd. Mohammed V">Bd. Mohammed V</button></div>
+<div class="egs-sumo-grid"><div class="egs-map-wrap"><div id="egsSumoMap"></div><canvas id="egsTrafficCanvas"></canvas><div class="egs-map-badge"><strong data-ar="نموذج SUMO/GIS" data-en="SUMO/GIS Model" id="egsStatusTitle">SUMO/GIS Model</strong><span data-ar="اختر منطقة لعرض الخريطة الحرارية أو محاكاة حركة المركبات." data-en="Load a zone to inspect heatmap or vehicle simulation." id="egsStatusText">Load a zone to inspect heatmap or vehicle simulation.</span></div><div class="egs-legend"><span data-ar="بطيئة" data-en="Slow"><i class="egs-dot red"></i>Slow</span><span data-ar="متوسطة" data-en="Medium"><i class="egs-dot yellow"></i>Medium</span><span data-ar="سريعة" data-en="Fast"><i class="egs-dot green"></i>Fast</span></div></div><aside class="egs-side"><div class="egs-kpis"><div class="egs-kpi"><div class="egs-kpi-label" data-ar="النقاط" data-en="POINTS">POINTS</div><div class="egs-kpi-val" id="egsKpiMain">—</div></div><div class="egs-kpi"><div class="egs-kpi-label" data-ar="المركبات" data-en="VEHICLES">VEHICLES</div><div class="egs-kpi-val" id="egsKpiVehicles">—</div></div><div class="egs-kpi"><div class="egs-kpi-label" data-ar="متوسط السرعة" data-en="AVG SPEED">AVG SPEED</div><div class="egs-kpi-val" id="egsKpiSpeed">—</div></div><div class="egs-kpi"><div class="egs-kpi-label" data-ar="النمط" data-en="MODE">MODE</div><div class="egs-kpi-val" id="egsKpiMode">—</div></div></div><div class="egs-controls"><div class="egs-control-row" data-ar="نطاق الخريطة الحرارية" data-en="Heat radius"><label data-ar="نطاق الخريطة الحرارية" data-en="Heat radius">Heat radius</label><input id="egsRadiusRange" max="35" min="5" type="range" value="18"/></div><div class="egs-control-row" data-ar="تمويه الخريطة الحرارية" data-en="Heat blur"><label data-ar="تمويه الخريطة الحرارية" data-en="Heat blur">Heat blur</label><input id="egsBlurRange" max="35" min="5" type="range" value="20"/></div><div class="egs-control-row" data-ar="شدة الكثافة" data-en="Intensity"><label data-ar="شدة الكثافة" data-en="Intensity">Intensity</label><input id="egsIntensityRange" max="10" min="1" type="range" value="5"/></div><div class="egs-control-row" data-ar="سرعة المركبات" data-en="Vehicle speed"><label data-ar="سرعة المركبات" data-en="Vehicle speed">Vehicle speed</label><input id="egsSpeedRange" max="10" min="1" type="range" value="6"/></div><div class="egs-control-row" data-ar="حجم المركبات" data-en="Vehicle size"><label data-ar="حجم المركبات" data-en="Vehicle size">Vehicle size</label><input id="egsVehicleSizeRange" max="12" min="2" type="range" value="6"/></div><div class="egs-control-buttons"><button class="egs-control-btn" data-ar="إعادة ضبط الخريطة الحرارية" data-en="Reset Heat" id="egsResetHeatmapBtn">Reset Heat</button><button class="egs-control-btn" data-ar="ملاءمة المحاكاة" data-en="Fit Sim" id="egsResetSimulationBtn">Fit Sim</button><button class="egs-control-btn" data-ar="تشغيل" data-en="Play" id="egsPlayBtn">Play</button><button class="egs-control-btn" data-ar="إيقاف مؤقت" data-en="Pause" id="egsPauseBtn">Pause</button><button class="egs-control-btn" data-ar="إعادة التشغيل" data-en="Restart" id="egsRestartBtn">Restart</button></div></div><p class="egs-note" data-ar="توضح هذه اللوحة سير عمل SUMO/GIS المطوّر في دراسة ربحية إعلانات الدار البيضاء." data-en="This dashboard illustrates the SUMO/GIS workflow developed for the Casablanca DOOH profitability study." id="egsAnalysisText">This dashboard illustrates the SUMO/GIS workflow developed for the Casablanca DOOH profitability study.</p></aside></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="gapTitle" id="gap">
+<div class="head"><div><div class="kicker" data-ar="05 — فجوة البحث" data-en="05 — Research gap">05 — Research gap</div><h2 data-ar="تتعلق فجوة البحث بدمج التمويل على مستوى المشروع في سلطنة عُمان." data-en="The research gap concerns project-level finance integration in Oman." id="gapTitle">The research gap concerns project-level finance integration in Oman.</h2></div><p class="note" data-ar="تتجنب الصياغة العبارات المترددة وتقرر غياباً محدداً في الأدبيات المالية." data-en="The wording avoids weak phrases and states a definitive absence in the finance literature.">The wording avoids weak phrases and states a definitive absence in the finance literature.</p></div>
+<div class="hard-gap"><h3 data-ar="بيان فجوة البحث" data-en="Research gap statement">Research gap statement</h3><p data-ar="لم يطوّر أي إطار مالي خاص بسلطنة عُمان، حتى الآن، نموذجاً موحداً يدمج هيكلة الصكوك الخضراء، وقابلية تمويل مشاريع الطاقة المتجددة على مستوى المشروع، وإفصاح ESG على نسق IFRS S1/S2، وانضباط الانبعاثات المتجنبة وفق GHG Protocol، والحوكمة الشرعية الواعية بمعايير AAOIFI، ضمن نموذج قابل للاختبار لتخصيص رأس المال باستخدام DCF وWACC وDSCR وLCOE وNPV وIRR وتحليل الحساسية." data-en="No Oman-specific finance framework has yet integrated green sukuk structuring, project-level renewable-energy bankability, IFRS S1/S2-style ESG disclosure, GHG Protocol avoided-emissions discipline, and AAOIFI-aware Shariah governance into one testable capital-allocation model using DCF, WACC, DSCR, LCOE, NPV, IRR, and sensitivity analysis."><mark>No Oman-specific finance framework has yet integrated</mark> green sukuk structuring, project-level renewable-energy bankability, IFRS S1/S2-style ESG disclosure, GHG Protocol avoided-emissions discipline, and AAOIFI-aware Shariah governance into one testable capital-allocation model using DCF, WACC, DSCR, LCOE, NPV, IRR, and sensitivity analysis.</p></div>
+</section>
+<section aria-labelledby="objTitle" id="objectives">
+<div class="head"><div><div class="kicker" data-ar="06 — أهداف SMART" data-en="06 — SMART objectives">06 — SMART objectives</div><h2 data-ar="أهداف تشغيلية ذات مخرجات مالية قابلة للقياس." data-en="Operational objectives with measurable finance outputs." id="objTitle">Operational objectives with measurable finance outputs.</h2></div><p class="note" data-ar="يرتبط كل هدف بمخرج نموذجي، أو مصدر بيانات، أو خطوة تحقق محددة." data-en="Each objective is tied to a model output, data source, or validation step.">Each objective is tied to a model output, data source, or validation step.</p></div>
+<div class="matrix"><table><thead><tr><th data-ar="الهدف" data-en="Objective">Objective</th><th data-ar="المخرج القابل للقياس" data-en="Measurable output">Measurable output</th><th data-ar="قاعدة البيانات/التحقق" data-en="Data/validation rule">Data/validation rule</th></tr></thead><tbody>
+<tr><td data-ar="بناء نموذج DCF لمشروع طاقة متجددة" data-en="Build renewable-energy project DCF model">Build renewable-energy project DCF model</td><td data-ar="NPV وIRR وLCOE وفترة الاسترداد وDSCR حسب السنة" data-en="NPV, IRR, LCOE, payback, DSCR-by-year">NPV, IRR, LCOE, payback, DSCR-by-year</td><td data-ar="الأولوية لبيانات NCSI وNama PWP ووثائق المشاريع؛ ولا تُستخدم مؤشرات IRENA إلا عند غياب مدخلات خاصة بعُمان" data-en="NCSI/Nama PWP/project documents first; IRENA benchmarks only when Oman-specific inputs are unavailable">NCSI/Nama PWP/project documents first; IRENA benchmarks only when Oman-specific inputs are unavailable</td></tr>
+<tr><td data-ar="مقارنة الصكوك الخضراء بالدين التقليدي" data-en="Compare green sukuk with conventional debt">Compare green sukuk with conventional debt</td><td data-ar="مقارنة WACC/معدل الربح، والأجل، والرسوم، وتكلفة التقارير، وأثر قاعدة المستثمرين" data-en="WACC/profit-rate comparison, tenor, fees, reporting cost, investor-base effect">WACC/profit-rate comparison, tenor, fees, reporting cost, investor-base effect</td><td data-ar="إفصاحات OETC والسوق العُماني، وأدلة CBO/FSA/MSX، والتحقق من الخبراء" data-en="OETC/Oman market disclosures, CBO/FSA/MSX evidence, expert validation">OETC/Oman market disclosures, CBO/FSA/MSX evidence, expert validation</td></tr>
+<tr><td data-ar="بناء بطاقة تقييم ESG والحوكمة الشرعية" data-en="Construct ESG and Shariah-governance scorecard">Construct ESG and Shariah-governance scorecard</td><td data-ar="درجة دليل من 0 إلى 5 للانبعاثات المتجنبة، وتقارير التخصيص، والتوكيد، والقيمة المحلية، والحوكمة" data-en="0–5 evidence score for avoided emissions, allocation reporting, assurance, local value, governance">0–5 evidence score for avoided emissions, allocation reporting, assurance, local value, governance</td><td data-ar="IFRS S1/S2 وGHG Protocol وحوكمة واعية بمعايير AAOIFI، مع الاعتماد على أدلة موثقة فقط" data-en="IFRS S1/S2, GHG Protocol, AAOIFI-aware governance, document-based evidence only">IFRS S1/S2, GHG Protocol, AAOIFI-aware governance, document-based evidence only</td></tr>
+<tr><td data-ar="اختبار قابلية التمويل تحت الضغط" data-en="Stress-test bankability">Stress-test bankability</td><td data-ar="مخطط تورنادو، ومصفوفة سيناريوهات، وضغط عتبات DSCR، وحساسية WACC/CAPEX/التعرفة" data-en="Tornado chart, scenario matrix, DSCR covenant pressure, WACC/CAPEX/tariff sensitivity">Tornado chart, scenario matrix, DSCR covenant pressure, WACC/CAPEX/tariff sensitivity</td><td data-ar="سيناريو محافظ، وسيناريو أساس، وسيناريو انتقال متسارع، مع توثيق جميع الافتراضات" data-en="Conservative, base, and transition-accelerated scenarios with all assumptions logged">Conservative, base, and transition-accelerated scenarios with all assumptions logged</td></tr>
+<tr><td data-ar="إنتاج توصيات ملائمة لجهاز الاستثمار العُماني" data-en="Produce OIA-relevant recommendations">Produce OIA-relevant recommendations</td><td data-ar="قاعدة قرار تحدد متى تُحسن الصكوك الخضراء جودة المشروع ومتى تضيف عبئاً توثيقياً" data-en="Decision rule for when green sukuk improve project quality versus add documentation burden">Decision rule for when green sukuk improve project quality versus add documentation burden</td><td data-ar="لا تتجاوز التوصيات جودة الأدلة؛ وتُعرض النتائج غير المؤكدة بوصفها مشروطة" data-en="Recommendations cannot exceed evidence quality; uncertain results are reported as conditional">Recommendations cannot exceed evidence quality; uncertain results are reported as conditional</td></tr>
+</tbody></table></div>
+</section>
+<section aria-labelledby="methodTitle" id="method">
+<div class="head"><div><div class="kicker" data-ar="07 — مسار البحث" data-en="07 — Research route">07 — Research route</div><h2 data-ar="مسار بحثي تقوده المالية من الدليل إلى القرار." data-en="A finance-led route from evidence to decision." id="methodTitle">A finance-led route from evidence to decision.</h2></div><p class="note" data-ar="تُستخدم المقابلات لمراجعة الافتراضات؛ ويبقى النموذج المالي جوهر القرار." data-en="Qualitative validation challenges assumptions; the financial model remains the decision core.">Qualitative validation challenges assumptions; the financial model remains the decision core.</p></div>
+<div class="grid-4">
+<article class="panel"><h3 data-ar="1. التسلسل الهرمي للأدلة العامة" data-en="1. Public evidence hierarchy">1. Public evidence hierarchy</h3><p data-ar="يعتمد على المصادر العُمانية الرسمية، ومؤشرات NCSI، وإفصاحات MSX/FSA، وتنظيمات المصرف المركزي العُماني للصيرفة الإسلامية، وتقارير جهاز الاستثمار العُماني، وبيانات Nama PWP، ومواد OETC، ومؤشرات IRENA، ومعايير IFRS/GHG/AAOIFI." data-en="Use official Omani sources, NCSI indicators, MSX/FSA disclosures, CBO Islamic-banking regulation, OIA reports, Nama PWP statements, OETC material, IRENA benchmarks, IFRS/GHG/AAOIFI standards.">Use official Omani sources, NCSI indicators, MSX/FSA disclosures, CBO Islamic-banking regulation, OIA reports, Nama PWP statements, OETC material, IRENA benchmarks, IFRS/GHG/AAOIFI standards.</p></article>
+<article class="panel"><h3 data-ar="2. النموذج المالي" data-en="2. Financial model">2. Financial model</h3><p data-ar="بناء نموذج DCF لمدة 20–25 سنة لمشروع شمسي كهروضوئي أو مشروع رياح ممثل، باستخدام CAPEX وOPEX والتعرفة/PPA ومعامل السعة والتدهور وWACC ومعدل ربح الصكوك والرسوم وهيكل السداد." data-en="Build a 20–25 year DCF model for a representative solar PV or wind project using CAPEX, OPEX, tariff/PPA, capacity factor, degradation, WACC, sukuk profit rate, fees, and repayment profile.">Build a 20–25 year DCF model for a representative solar PV or wind project using CAPEX, OPEX, tariff/PPA, capacity factor, degradation, WACC, sukuk profit rate, fees, and repayment profile.</p></article>
+<article class="panel"><h3 data-ar="3. بطاقة تقييم ESG والحوكمة" data-en="3. ESG and governance scorecard">3. ESG and governance scorecard</h3><p data-ar="تقييم الأدلة الموثقة فقط: الانبعاثات المتجنبة، وتقارير التخصيص، وتقارير الأثر، والحوكمة الشرعية، والتوكيد الخارجي، والتوظيف المحلي، وشفافية المشتريات، والقدرة على تحمل مخاطر المناخ." data-en="Score only documented evidence: avoided emissions, allocation reporting, impact reporting, Shariah governance, external assurance, local employment, procurement transparency, and climate-risk resilience.">Score only documented evidence: avoided emissions, allocation reporting, impact reporting, Shariah governance, external assurance, local employment, procurement transparency, and climate-risk resilience.</p></article>
+<article class="panel"><h3 data-ar="4. السيناريوهات والتحقق" data-en="4. Scenario and validation">4. Scenario and validation</h3><p data-ar="تشغيل السيناريو المحافظ والأساس والانتقال المتسارع، وتحليل حساسية تورنادو، وضغط عتبات DSCR، ومصفوفة WACC، وإجراء 12–16 مقابلة خبراء متى أتيح الوصول." data-en="Run conservative/base/transition cases, tornado sensitivity, DSCR covenant stress, WACC matrix, and 12–16 expert interviews where access is granted.">Run conservative/base/transition cases, tornado sensitivity, DSCR covenant stress, WACC matrix, and 12–16 expert interviews where access is granted.</p></article>
+</div>
+<div class="transfer-panel" data-cadence="dour-40"><h3 data-ar="التبرير المنهجي" data-en="Methodological justification">Methodological justification</h3><p data-ar="يُرفض تناول التمويل الأخضر بأسلوب وصفي لأنه لا يختبر قابلية التمويل. كما تُرفض الدراسة النوعية الخالصة لأنها لا تقيس حساسية WACC أو DSCR أو LCOE أو NPV. أما التصميم الاقتصادي القياسي البحت فغير كافٍ أيضاً لأن هيكلة الصكوك على مستوى المشروع تتطلب تحليل وثائق ونمذجة سيناريوهات في ظل قيود البيانات." data-en="A descriptive green-finance essay is rejected because it cannot test bankability. A purely qualitative study is rejected because it cannot quantify WACC, DSCR, LCOE or NPV sensitivity. A pure econometric design is also insufficient because project-level sukuk structuring requires document analysis and scenario modelling under data constraints.">A descriptive green-finance essay is rejected because it cannot test bankability. A purely qualitative study is rejected because it cannot quantify WACC, DSCR, LCOE or NPV sensitivity. A pure econometric design is also insufficient because project-level sukuk structuring requires document analysis and scenario modelling under data constraints.</p><p class="bridge-line" data-ar="تعمل طبقة التفسير على تحويل وثائق الصكوك، وتقارير الاستدامة، وافتراضات الطاقة، والإفصاحات المحاسبية إلى متغيرات قابلة للاختبار: معدل الربح، الأجل، تكلفة التقارير، حدود الانبعاثات، عتبات DSCR، وقيمة LCOE." data-en="The interpretation layer converts sukuk documents, sustainability reports, energy assumptions, and accounting disclosures into testable variables: profit rate, tenor, reporting cost, emissions boundary, DSCR thresholds, and LCOE.">The interpretation layer converts sukuk documents, sustainability reports, energy assumptions, and accounting disclosures into testable variables: profit rate, tenor, reporting cost, emissions boundary, DSCR thresholds, and LCOE.</p>
+<div class="validation-gates" data-schema="seba-ridjal" aria-label="Seven validation gates for the research model">
+<div class="validation-gate"><b data-ar="1. مصدر البيانات" data-en="1. Data source">1. Data source</b><span data-ar="أصل كل مدخل وسنة إصداره" data-en="origin and date for every input">origin and date for every input</span></div>
+<div class="validation-gate"><b data-ar="2. الحدود" data-en="2. Boundary">2. Boundary</b><span data-ar="نطاق المشروع والانبعاثات" data-en="project and emissions scope">project and emissions scope</span></div>
+<div class="validation-gate"><b data-ar="3. التدفقات" data-en="3. Cash flows">3. Cash flows</b><span data-ar="CAPEX وOPEX والإيرادات" data-en="CAPEX, OPEX, revenues">CAPEX, OPEX, revenues</span></div>
+<div class="validation-gate"><b data-ar="4. العهد المالي" data-en="4. Covenant">4. Covenant</b><span data-ar="مرونة DSCR تحت الضغط" data-en="DSCR resilience under stress">DSCR resilience under stress</span></div>
+<div class="validation-gate"><b data-ar="5. الإفصاح" data-en="5. Disclosure">5. Disclosure</b><span data-ar="تتبع التخصيص والأثر" data-en="allocation and impact traceability">allocation and impact traceability</span></div>
+<div class="validation-gate"><b data-ar="6. الحوكمة" data-en="6. Governance">6. Governance</b><span data-ar="حوكمة شرعية ومؤسسية" data-en="Shariah and corporate governance">Shariah and corporate governance</span></div>
+<div class="validation-gate"><b data-ar="7. القرار" data-en="7. Decision rule">7. Decision rule</b><span data-ar="قبول مشروط بجودة الأدلة" data-en="acceptance bounded by evidence quality">acceptance bounded by evidence quality</span></div>
+</div></div>
+</section>
+<section aria-labelledby="financeTitle" id="finance">
+<div class="head"><div><div class="kicker" data-ar="08 — النموذج المالي" data-en="08 — Financial model">08 — Financial model</div><h2 data-ar="العمود الرياضي للمقترح المقدم إلى جامعة السلطان قابوس." data-en="The mathematical spine of the SQU proposal." id="financeTitle">The mathematical spine of the SQU proposal.</h2></div><p class="note" data-ar="لا تُقبل أي تسمية خضراء أو إسلامية ما لم تصمد أمام هذه الاختبارات المالية." data-en="No green or Islamic label is accepted unless it survives these financial tests.">No green or Islamic label is accepted unless it survives these financial tests.</p></div>
+<div class="grid-2">
+<article class="panel"><h3 data-ar="معادلات قابلية التمويل" data-en="Bankability equations">Bankability equations</h3><div class="equation">NPV = Σ[FCF_t / (1 + WACC)^t] − Initial CAPEX
+IRR: 0 = Σ[FCF_t / (1 + IRR)^t] − Initial CAPEX
+DSCR_t = CFADS_t / Debt_or_Sukuk_Service_t
+LCOE = discounted lifecycle costs / discounted electricity generated</div><p data-ar="قاعدة القرار: لا يكفي أن يكون NPV موجباً إذا انهار DSCR تحت الضغط أو إذا كان LCOE غير متوافق مع افتراضات التعرفة/PPA." data-en="Decision rule: positive NPV is insufficient if DSCR collapses under stress or if LCOE is not compatible with tariff/PPA assumptions.">Decision rule: positive NPV is insufficient if DSCR collapses under stress or if LCOE is not compatible with tariff/PPA assumptions.</p></article>
+<article class="panel"><h3 data-ar="تعديلات خاصة بالصكوك" data-en="Sukuk-specific adjustments">Sukuk-specific adjustments</h3><div class="equation">WACC_sukuk = f(profit rate, tenor, issuance fees, liquidity, reserve accounts, reporting cost, investor-base effect)
+Avoided CO2e_t = Renewable electricity_t × grid emission factor_t − project emissions_t</div><p data-ar="قاعدة القرار: تكون الصكوك الخضراء ذات قيمة مالية فقط عندما تحسّن التكلفة الشاملة ومصداقية الحوكمة وتقارير التخصيص، أو تحافظ على اقتصاديات المشروع دون إضعافها." data-en="Decision rule: green sukuk are financially valuable only when all-in cost, governance credibility, and allocation reporting improve or preserve project economics.">Decision rule: green sukuk are financially valuable only when all-in cost, governance credibility, and allocation reporting improve or preserve project economics.</p></article>
+</div>
+</section>
+<section aria-labelledby="timeTitle" id="timeline">
+<div class="head"><div><div class="kicker" data-ar="09 — الجدول الزمني" data-en="09 — Timeline">09 — Timeline</div><h2 data-ar="خطة تنفيذ تمتد على اثني عشر شهراً بعد اعتماد المقترح." data-en="Twelve-month execution plan after proposal approval." id="timeTitle">Twelve-month execution plan after proposal approval.</h2></div><p class="note" data-ar="يحوّل الجدول الزمني المقترح إلى مخرجات قابلة للتسليم، لا إلى نوايا عامة." data-en="The schedule converts the proposal into deliverables, not intentions.">The schedule converts the proposal into deliverables, not intentions.</p></div>
+<div class="timeline">
+<div class="timeline-item"><b>M1–M2</b><span data-ar="التحقق من المصادر الرسمية، وتحديث مصفوفة الأدلة، وتأكيد ملاحظات المشرف وحدود الحالة النهائية." data-en="Validate official sources, update evidence matrix, confirm supervisor feedback and final case boundary.">Validate official sources, update evidence matrix, confirm supervisor feedback and final case boundary.</span><div class="bar"><div class="fill" style="--w:16%"></div></div></div>
+<div class="timeline-item"><b>M2–M3</b><span data-ar="جمع بيانات السياسات والتكلفة والتعرفة والصكوك وCBO/FSA/MSX/NCSI وNama PWP وOETC والبيانات المرجعية." data-en="Collect policy, cost, tariff, sukuk, CBO/FSA/MSX/NCSI, Nama PWP, OETC and benchmark data.">Collect policy, cost, tariff, sukuk, CBO/FSA/MSX/NCSI, Nama PWP, OETC and benchmark data.</span><div class="bar"><div class="fill" style="--w:25%"></div></div></div>
+<div class="timeline-item"><b>M3–M4</b><span data-ar="بناء نموذج DCF يتضمن NPV وIRR وDSCR وLCOE وWACC وفترة الاسترداد وجدول افتراضات موثق." data-en="Build DCF model with NPV, IRR, DSCR, LCOE, WACC, payback, and a documented assumptions sheet.">Build DCF model with NPV, IRR, DSCR, LCOE, WACC, payback, and a documented assumptions sheet.</span><div class="bar"><div class="fill" style="--w:34%"></div></div></div>
+<div class="timeline-item"><b>M4–M6</b><span data-ar="بناء بطاقة تقييم ESG/الحوكمة الشرعية ومقارنة افتراضات الصكوك بالدين التقليدي." data-en="Construct ESG/Shariah scorecard and compare sukuk versus conventional debt assumptions.">Construct ESG/Shariah scorecard and compare sukuk versus conventional debt assumptions.</span><div class="bar"><div class="fill" style="--w:50%"></div></div></div>
+<div class="timeline-item"><b>M6–M7</b><span data-ar="تشغيل اختبارات الحساسية، ومخطط تورنادو، وضغط DSCR، ومصفوفة WACC، ومخرجات السيناريوهات." data-en="Run sensitivity, tornado chart, DSCR stress, WACC matrix and scenario outputs.">Run sensitivity, tornado chart, DSCR stress, WACC matrix and scenario outputs.</span><div class="bar"><div class="fill" style="--w:60%"></div></div></div>
+<div class="timeline-item"><b>M7–M8</b><span data-ar="إجراء تحقق عبر الخبراء أو استخدام بديل تحليل الوثائق؛ ثم مراجعة الافتراضات الضعيفة." data-en="Conduct expert validation or documentary validation; revise weak assumptions.">Conduct expert validation or documentary validation; revise weak assumptions.</span><div class="bar"><div class="fill" style="--w:70%"></div></div></div>
+<div class="timeline-item"><b>M8–M12</b><span data-ar="صياغة الأطروحة أو الورقة البحثية ومراجعتها وتدقيق مراجعها وتنسيقها وتسليمها." data-en="Draft, revise, reference-check, format, and submit the thesis or research paper.">Draft, revise, reference-check, format, and submit the thesis or research paper.</span><div class="bar"><div class="fill" style="--w:100%"></div></div></div>
+</div>
+</section>
+<section aria-labelledby="evidenceTitle" id="evidence">
+<div class="head"><div><div class="kicker" data-ar="انضباط الأدلة" data-en="Evidence discipline">Evidence discipline</div><h2 data-ar="تعتمد استراتيجية البيانات على مصادر عامة قابلة للتحقق وافتراضات محددة الحدود." data-en="The data strategy is public, verifiable, and assumption-bounded." id="evidenceTitle">The data strategy is public, verifiable, and assumption-bounded.</h2></div><p class="note" data-ar="تم توضيح التسلسل الهرمي للبيانات لأن الحسابات التفصيلية للمشاريع قد لا تكون متاحة للباحث." data-en="The data hierarchy is explicit because confidential project accounts may not be accessible.">The data hierarchy is explicit because confidential project accounts may not be accessible.</p></div>
+<div class="matrix"><table><thead><tr><th data-ar="مستوى البيانات" data-en="Data tier">Data tier</th><th data-ar="المصدر المفضل" data-en="Preferred source">Preferred source</th><th data-ar="الاستخدام" data-en="Use">Use</th><th data-ar="قاعدة الحدود المنهجية" data-en="Limitation rule">Limitation rule</th></tr></thead><tbody>
+<tr><td data-ar="المستوى 1" data-en="Tier 1">Tier 1</td><td data-ar="إفصاحات MSX/FSA السنوية والربع سنوية؛ القوائم المالية المدققة؛ وإيضاحات الشركات" data-en="MSX/FSA annual and quarterly disclosures; audited statements; corporate notes">MSX/FSA annual and quarterly disclosures; audited statements; corporate notes</td><td data-ar="تكلفة رأس المال، ومقارنات القطاع، والرافعة المالية، ومؤشرات التدفقات النقدية، وأدلة الحوكمة" data-en="Cost of capital, sector comparables, leverage, cash-flow proxies, governance evidence">Cost of capital, sector comparables, leverage, cash-flow proxies, governance evidence</td><td data-ar="عدم استنتاج اقتصاديات المشاريع السرية من مجاميع الشركات المدرجة من دون إفصاح كافٍ" data-en="Do not infer confidential project economics from listed-company aggregates without disclosure">Do not infer confidential project economics from listed-company aggregates without disclosure</td></tr>
+<tr><td data-ar="المستوى 2" data-en="Tier 2">Tier 2</td><td data-ar="NCSI وCBO ووزارة المالية وNama PWP وOETC ووثائق قطاع الطاقة الرسمية" data-en="NCSI, CBO, Ministry of Finance, Nama PWP, OETC and official energy-sector documents">NCSI, CBO, Ministry of Finance, Nama PWP, OETC and official energy-sector documents</td><td data-ar="الطلب، والظروف الكلية، وسياق التعرفة/PPA، وتنظيم التمويل الإسلامي، وشروط الصكوك" data-en="Demand, macro conditions, tariff/PPA context, Islamic-finance regulation, sukuk terms">Demand, macro conditions, tariff/PPA context, Islamic-finance regulation, sukuk terms</td><td data-ar="الفصل بين البيانات المرصودة والافتراضات وقيم السيناريوهات" data-en="Separate observed data from assumptions and scenario values">Separate observed data from assumptions and scenario values</td></tr>
+<tr><td data-ar="المستوى 3" data-en="Tier 3">Tier 3</td><td data-ar="IRENA ومؤسسة IFRS وGHG Protocol وAAOIFI والأدبيات المحكمة" data-en="IRENA, IFRS Foundation, GHG Protocol, AAOIFI and peer-reviewed literature">IRENA, IFRS Foundation, GHG Protocol, AAOIFI and peer-reviewed literature</td><td data-ar="مقارنة CAPEX/OPEX، ومنطق الإفصاح، ومنهجية الانبعاثات، ومعايير الحوكمة" data-en="Benchmark CAPEX/OPEX, disclosure logic, emissions methodology, governance standards">Benchmark CAPEX/OPEX, disclosure logic, emissions methodology, governance standards</td><td data-ar="استخدام المؤشرات العالمية فقط عند عدم توافر أرقام خاصة بسلطنة عُمان" data-en="Use global benchmarks only when Oman-specific figures are unavailable">Use global benchmarks only when Oman-specific figures are unavailable</td></tr>
+<tr><td data-ar="المستوى 4" data-en="Tier 4">Tier 4</td><td data-ar="مقابلات الخبراء" data-en="Expert interviews">Expert interviews</td><td data-ar="التحقق من الافتراضات، ونطاقات المخاطر، وقابلية الهيكلة، ومعقولية بطاقة ESG" data-en="Validate assumptions, risk ranges, structuring feasibility, ESG scorecard plausibility">Validate assumptions, risk ranges, structuring feasibility, ESG scorecard plausibility</td><td data-ar="المقابلات تُستخدم للتثليث المنهجي؛ ولا تثبت الجدوى المالية بمفردها" data-en="Interviews triangulate; they do not prove financial viability">Interviews triangulate; they do not prove financial viability</td></tr>
+</tbody></table></div>
+</section>
+<section aria-labelledby="audienceTitle" id="audience">
+<div class="head"><div><div class="kicker" data-ar="10 — الملاءمة مع جهاز الاستثمار العُماني" data-en="10 — OIA alignment">10 — OIA alignment</div><h2 data-ar="يخدم المقترح انضباط تخصيص رأس المال، لا مجرد إطلاق تسمية خضراء." data-en="The proposal serves capital-allocation discipline, not green labelling." id="audienceTitle">The proposal serves capital-allocation discipline, not green labelling.</h2></div><p class="note" data-ar="تتمثل القيمة العملية في التمييز بين مشاريع الطاقة المتجددة التي تعزز قيمة الأصول الوطنية والمشاريع التي تعتمد أساساً على التسمية الخضراء." data-en="The practical value is to distinguish renewable projects that strengthen national asset value from projects that rely mainly on green labels.">The practical value is to distinguish renewable projects that strengthen national asset value from projects that rely mainly on green labels.</p></div>
+<div class="grid-3">
+<article class="panel"><h3 data-ar="جهاز الاستثمار العُماني" data-en="Oman Investment Authority">Oman Investment Authority</h3><p data-ar="حالة الاستخدام: تقييم ما إذا كانت البنية التحتية الممولة بالصكوك الخضراء تحسّن قيمة الأصول الوطنية المعدلة بالمخاطر، والتنويع، والمرونة المالية، ومصداقية ESG، والقيمة المحلية المضافة." data-en="Use case: evaluate whether green-sukuk-financed infrastructure improves risk-adjusted national asset value, diversification, fiscal resilience, ESG credibility, and local value creation.">Use case: evaluate whether green-sukuk-financed infrastructure improves risk-adjusted national asset value, diversification, fiscal resilience, ESG credibility, and local value creation.</p></article>
+<article class="panel"><h3 data-ar="الجهات الرقابية وأسواق رأس المال" data-en="Regulators and capital markets">Regulators and capital markets</h3><p data-ar="حالة الاستخدام: تطوير أطر التمويل المستدام، ونماذج الإفصاح، وانضباط تقارير الصكوك، والحوكمة الشرعية، وتوقعات تقارير التخصيص والأثر." data-en="Use case: refine sustainable finance frameworks, disclosure templates, sukuk reporting discipline, Shariah governance, and allocation/impact reporting expectations.">Use case: refine sustainable finance frameworks, disclosure templates, sukuk reporting discipline, Shariah governance, and allocation/impact reporting expectations.</p></article>
+<article class="panel"><h3 data-ar="رعاة المشاريع والبنوك" data-en="Project sponsors and banks">Project sponsors and banks</h3><p data-ar="حالة الاستخدام: تحديد المتغيرات التي تتطلب تفاوضاً مبكراً، مثل معدل الربح، والأجل، وCAPEX، ويقين التعرفة/PPA، وحسابات الاحتياطي، وتكلفة التقارير، والتوكيد، وشهية المستثمرين." data-en="Use case: identify which variables require early negotiation—profit rate, tenor, CAPEX, tariff/PPA certainty, reserve accounts, reporting cost, assurance, and investor appetite.">Use case: identify which variables require early negotiation—profit rate, tenor, CAPEX, tariff/PPA certainty, reserve accounts, reporting cost, assurance, and investor appetite.</p></article>
+</div>
+</section>
+
+<section aria-labelledby="sourceTitle" id="sources">
+<div class="head"><div><div class="kicker" data-ar="11 — مرتكزات المصادر الرسمية" data-en="11 — Official source anchors">11 — Official source anchors</div><h2 data-ar="مصادر تُستخدم لضبط التأطير المالي الخاص بسلطنة عُمان." data-en="Sources used to discipline the Oman-specific finance framing." id="sourceTitle">Sources used to discipline the Oman-specific finance framing.</h2></div><p class="note" data-ar="تستخدم المحفظة مصادر رسمية أو أولية كلما أمكن، وتتعامل مع المواد الإعلامية كتأكيد ثانوي فقط." data-en="The portfolio uses official or primary sources where possible and treats media items only as secondary confirmation.">The portfolio uses official or primary sources where possible and treats media items only as secondary confirmation.</p></div>
+<div class="sources">
+<article class="source"><h3 data-ar="ماجستير العلوم في المحاسبة والتمويل بجامعة السلطان قابوس" data-en="SQU MSc Accounting &amp; Finance">SQU MSc Accounting &amp; Finance</h3><a data-ar="الصفحة الرسمية للبرنامج في جامعة السلطان قابوس" data-en="Official SQU programme page" href="https://www.squ.edu.om/ps/en-us/programs/colleges/articleid/1107/master-of-science-in-accounting-and-finance" rel="noopener" target="_blank">Official SQU programme page</a><p data-ar="هوية البرنامج والكلية والتخصصات وبنية المقررات مع الأطروحة والمدة ولغة التدريس." data-en="Programme identity, college, majors, coursework-plus-thesis structure, duration, and English instruction.">Programme identity, college, majors, coursework-plus-thesis structure, duration, and English instruction.</p></article>
+<article class="source"><h3 data-ar="رؤية عُمان 2040" data-en="Oman Vision 2040">Oman Vision 2040</h3><a data-ar="البوابة الرسمية لرؤية عُمان 2040" data-en="Official Vision 2040 portal" href="https://www.oman2040.om/?lang=en" rel="noopener" target="_blank">Official Vision 2040 portal</a><p data-ar="مرتكز التخطيط الوطني للتنويع والاستدامة والاستثمار والحوكمة والتحول الاقتصادي طويل الأجل." data-en="National planning anchor for diversification, sustainability, investment, governance, and long-term economic transformation.">National planning anchor for diversification, sustainability, investment, governance, and long-term economic transformation.</p></article>
+<article class="source"><h3 data-ar="جهاز الاستثمار العُماني" data-en="Oman Investment Authority">Oman Investment Authority</h3><a data-ar="الصفحة الرسمية لاختصاصات جهاز الاستثمار العُماني" data-en="Official OIA mandate page" href="https://oia.gov.om/en//about/about-oia" rel="noopener" target="_blank">Official OIA mandate page</a><p data-ar="جمهور تخصيص رأس المال: إدارة أصول عُمان واستثمارها وتنميتها محلياً ودولياً." data-en="Capital-allocation audience: managing, investing, and growing Oman’s assets locally and internationally.">Capital-allocation audience: managing, investing, and growing Oman’s assets locally and internationally.</p></article>
+<article class="source"><h3 data-ar="البنك المركزي العُماني" data-en="Central Bank of Oman">Central Bank of Oman</h3><a data-ar="الإطار التنظيمي للمصارف الإسلامية" data-en="Islamic Banking Regulatory Framework" href="https://cbo.gov.om/Pages/IslamicBankingRegulatoryFramework.aspx" rel="noopener" target="_blank">Islamic Banking Regulatory Framework</a><p data-ar="مرتكز تنظيمي للصيرفة الإسلامية وهياكل التمويل المتوافقة مع الشريعة." data-en="Regulatory anchor for Islamic banking and Shariah-compliant financing structures.">Regulatory anchor for Islamic banking and Shariah-compliant financing structures.</p></article>
+<article class="source"><h3 data-ar="هيئة الخدمات المالية" data-en="Financial Services Authority">Financial Services Authority</h3><a data-ar="إطار الإفصاح" data-en="Disclosure framework" href="https://fsa.gov.om/Home/Disclosure" rel="noopener" target="_blank">Disclosure framework</a><p data-ar="مرجع لإفصاح الشركات المدرجة: القوائم السنوية المدققة، والقوائم الربع سنوية، والتدفقات النقدية، والتغيرات في حقوق الملكية، والإيضاحات." data-en="Reference point for listed-company disclosure: audited annual statements, quarterly statements, cash flows, equity changes, and notes.">Reference point for listed-company disclosure: audited annual statements, quarterly statements, cash flows, equity changes, and notes.</p></article>
+<article class="source"><h3 data-ar="المركز الوطني للإحصاء والمعلومات" data-en="NCSI Oman">NCSI Oman</h3><a data-ar="البوابة الرسمية للإحصاءات" data-en="Official statistics portal" href="https://www.ncsi.gov.om/" rel="noopener" target="_blank">Official statistics portal</a><p data-ar="مرتكز للإحصاءات العامة المتعلقة بالمؤشرات الكلية والديموغرافية والطاقة والإسكان والنقل والحسابات القومية." data-en="Public statistics anchor for macroeconomic, demographic, energy, housing, transport, and national-account indicators.">Public statistics anchor for macroeconomic, demographic, energy, housing, transport, and national-account indicators.</p></article>
+<article class="source"><h3>AAOIFI</h3><a data-ar="هيئة المعايير" data-en="Standards body" href="https://aaoifi.com/?lang=en" rel="noopener" target="_blank">Standards body</a><p data-ar="مرجع لمعايير التمويل الإسلامي في المحاسبة والمراجعة والحوكمة والأخلاقيات والانضباط الشرعي." data-en="Reference point for Islamic-finance standards in accounting, auditing, governance, ethics, and Shariah discipline.">Reference point for Islamic-finance standards in accounting, auditing, governance, ethics, and Shariah discipline.</p></article>
+<article class="source"><h3 data-ar="مؤسسة IFRS" data-en="IFRS Foundation">IFRS Foundation</h3><a data-ar="دليل معايير S1/S2" data-en="S1/S2 standards navigator" href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/" rel="noopener" target="_blank">S1/S2 standards navigator</a><p data-ar="مرجع للإفصاح عن المعلومات المالية المتعلقة بالاستدامة والإفصاحات المناخية." data-en="Reference point for sustainability-related financial information and climate-related disclosures.">Reference point for sustainability-related financial information and climate-related disclosures.</p></article>
+<article class="source"><h3>GHG Protocol</h3><a data-ar="إرشادات الانبعاثات المتجنبة" data-en="Avoided-emissions guidance" href="https://ghgprotocol.org/estimating-and-reporting-avoided-emissions" rel="noopener" target="_blank">Avoided-emissions guidance</a><p data-ar="مرتكز منهجي لضبط خط الأساس والحدود ومعاملات الانبعاثات." data-en="Methodology anchor for baseline, boundary, and emissions-factor discipline.">Methodology anchor for baseline, boundary, and emissions-factor discipline.</p></article>
+<article class="source"><h3 data-ar="مدينة السلطان هيثم" data-en="Sultan Haitham City">Sultan Haitham City</h3><a data-ar="صفحة المشروع الرسمية لدى وزارة الإسكان والتخطيط العمراني" data-en="Official MoHUP project page" href="https://mohup.gov.om/en/projects/qctg57lyr61bsqi7c00hey6s" rel="noopener" target="_blank">Official MoHUP project page</a><p data-ar="مرجع للتطوير الحضري الذكي والمستدام: المساحات الخضراء، والبنية الذكية، والربط، والهوية العُمانية." data-en="Reference point for smart and sustainable urban development: green spaces, smart infrastructure, connectivity, and Omani heritage.">Reference point for smart and sustainable urban development: green spaces, smart infrastructure, connectivity, and Omani heritage.</p></article><article class="source"><h3 data-ar="المدينة المستدامة — يتي" data-en="The Sustainable City – Yiti">The Sustainable City – Yiti</h3><a data-ar="استراتيجية الاستدامة في المشروع" data-en="Project sustainability strategy" href="https://thesustainablecity.com/strategies-to-achieve-net-zero-emissions-by-2040/" rel="noopener" target="_blank">Project sustainability strategy</a><p data-ar="أهداف حضرية قابلة للقياس: الطاقة المتجددة، وإعادة تدوير المياه، وتحويل النفايات عن المطامر، والاكتفاء الغذائي، وخفض البصمة الكربونية." data-en="Measurable urban-sustainability targets: renewable energy, water recycling, landfill diversion, food self-sufficiency, and lower emissions footprint.">Measurable urban-sustainability targets: renewable energy, water recycling, landfill diversion, food self-sufficiency, and lower emissions footprint.</p></article><article class="source"><h3 data-ar="قانون حماية البيانات الشخصية في عُمان" data-en="Oman Personal Data Protection Law">Oman Personal Data Protection Law</h3><a data-ar="المرسوم السلطاني 6/2022" data-en="Royal Decree 6/2022" href="https://decree.om/2022/rd20220006/" rel="noopener" target="_blank">Royal Decree 6/2022</a><p data-ar="مرجع للخصوصية وأخلاقيات البحث: موافقة واضحة وصريحة ومفهومة قبل معالجة البيانات الشخصية." data-en="Reference point for privacy and research ethics: clear, explicit, understandable consent before processing personal data.">Reference point for privacy and research ethics: clear, explicit, understandable consent before processing personal data.</p></article><article class="source"><h3 data-ar="العنونة الموحدة والمركز الوطني للإحصاء والمعلومات" data-en="Unified addressing and NCSI">Unified addressing and NCSI</h3><a data-ar="دليل نظام العنونة الموحدة" data-en="Unified addressing evidence" href="https://www.esri.com/about/newsroom/arcuser/oman-addressing" rel="noopener" target="_blank">Unified addressing evidence</a><p data-ar="يدعم منطق المعالم والدبابيس على الخريطة وتسلسل المحافظة/الولاية/الحي في تجربة التنقل والخدمات العامة." data-en="Supports landmark, map-pin, governorate/wilayat/neighborhood logic for mobility and public-service UX.">Supports landmark, map-pin, governorate/wilayat/neighborhood logic for mobility and public-service UX.</p></article><article class="source"><h3 data-ar="إرشادات W3C للنصوص ثنائية الاتجاه" data-en="W3C bidirectional text guidance">W3C bidirectional text guidance</h3><a data-ar="تقنيات HTML للنصوص ثنائية الاتجاه" data-en="HTML bidi techniques" href="https://www.w3.org/International/geo/html-tech/tech-bidi.html" rel="noopener" target="_blank">HTML bidi techniques</a><p data-ar="مرجع تقني للعربية من اليمين إلى اليسار، والنصوص ثنائية الاتجاه، والمختلط العربي/اللاتيني في التسميات المالية." data-en="Reference point for Arabic RTL, bidirectional text, and mixed Arabic/Latin financial labels.">Reference point for Arabic RTL, bidirectional text, and mixed Arabic/Latin financial labels.</p></article><article class="source"><h3 data-ar="خطوط Noto Sans Arabic وCairo" data-en="Noto Sans Arabic / Cairo typography">Noto Sans Arabic / Cairo typography</h3><a data-ar="نماذج Google Fonts" data-en="Google Fonts specimen" href="https://fonts.google.com/noto/specimen/Noto%2BSans%2BArabic" rel="noopener" target="_blank">Google Fonts specimen</a><p data-ar="مرجع طباعي عربي للنماذج الكثيفة ولوحات البيانات والمحتوى المالي ثنائي اللغة." data-en="Reference point for Arabic UI typography in dense forms, dashboards, and bilingual financial content.">Reference point for Arabic UI typography in dense forms, dashboards, and bilingual financial content.</p></article></div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<p data-ar="محفظة قبول أكاديمية موجهة إلى ماجستير المحاسبة والتمويل بجامعة السلطان قابوس. يتمحور المقترح البحثي حول الصكوك الخضراء لتمويل البنية التحتية للطاقة المتجددة في سلطنة عُمان، مع التركيز على تمويل المشاريع، ومساءلة ESG، ومعايير الإفصاح، وانضباط أسواق رأس المال الإسلامية في إطار رؤية عُمان 2040. وتُعرض الأعمال السابقة في ترتيب الاستثمارات وSUMO/GIS كأدلة على القدرة التحليلية والتطبيقية." data-en="Academic admissions portfolio for the MSc Accounting and Finance at Sultan Qaboos University. The research proposal focuses on green sukuk for renewable-energy infrastructure in Oman, with emphasis on project finance, ESG accountability, disclosure standards, and Islamic capital-market discipline under Oman Vision 2040. Prior investment-scoring and SUMO/GIS work is presented as evidence of analytical and applied modelling capability.">Academic admissions portfolio for the MSc Accounting and Finance at Sultan Qaboos University. The research proposal focuses on green sukuk for renewable-energy infrastructure in Oman, with emphasis on project finance, ESG accountability, disclosure standards, and Islamic capital-market discipline under Oman Vision 2040. Prior investment-scoring and SUMO/GIS work is presented as evidence of analytical and applied modelling capability.</p>
+</div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<script>
+(function(){
+ 'use strict';
+
+ const EGS_ZONES = {
+ maarif: {
+ label:'Maârif', color:'#FF3355', center:[33.5866,-7.6325], zoom:14,
+ heatmapFile:'maarif_heatmap.json',
+ simulationFile:'maarif_simulation_geo.json',
+ analysis:'Maârif: central dense fabric. The model can read SUMO/GIS JSON when present; otherwise it displays a portfolio sample dataset.',
+ analysisAr:'المعاريف: نسيج حضري مركزي كثيف. تستطيع الطبقة قراءة ملفات SUMO/GIS بصيغة JSON عند توفرها؛ وإلا تعرض مجموعة بيانات تجريبية مدمجة.'
+ },
+ hay_hassani: {
+ label:'Hay Hassani', color:'#FFB830', center:[33.5607,-7.6900], zoom:14,
+ heatmapFile:'hay_hassani_heatmap.json',
+ simulationFile:'hay_hassani_simulation_geo.json',
+ analysis:'Hay Hassani: peripheral flows and transition zones. Useful to inspect localized slowdowns and vehicle accumulation.',
+ analysisAr:'حي الحسني: تدفقات طرفية ومناطق انتقالية. مفيد لفحص التباطؤ المحلي وتراكم المركبات.'
+ },
+ ben_msick: {
+ label:"Ben M'Sick", color:'#00E676', center:[33.5500,-7.5800], zoom:14,
+ heatmapFile:'ben_msick_heatmap.json',
+ simulationFile:'ben_msick_simulation_geo.json',
+ analysis:"Ben M'Sick: dense urban network. The dashboard supports reading conflict points, secondary-road intensity and speed variations.",
+ analysisAr:"بن مسيك: شبكة حضرية كثيفة. تدعم اللوحة قراءة نقاط التعارض وكثافة الطرق الثانوية وتغيرات السرعة."
+ },
+ sidi_maarouf: {
+ label:'Sidi Maârouf', color:'#BF5AF2', center:[33.5250,-7.6500], zoom:14,
+ heatmapFile:'sidi_maarouf_heatmap.json',
+ simulationFile:'sidi_maarouf_simulation_geo.json',
+ analysis:'Sidi Maârouf: strategic employment and arterial area. Simulation shows flows related to business poles and major roads.',
+ analysisAr:'سيدي معروف: منطقة تشغيل ومحاور استراتيجية. تعرض المحاكاة تدفقات مرتبطة بأقطاب الأعمال والطرق الرئيسية.'
+ },
+ bd_mohammed_v: {
+ label:'Bd. Mohammed V', color:'#00B4D8', center:[33.5950,-7.6100], zoom:15,
+ heatmapFile:'bd_mohammed_v_heatmap.json',
+ simulationFile:'bd_mohammed_v_simulation_geo.json',
+ analysis:'Boulevard Mohammed V: major corridor. Heatmap and simulation identify concentration and slowdown segments.',
+ analysisAr:'شارع محمد الخامس: ممر رئيسي. تحدد الخريطة الحرارية والمحاكاة مقاطع التركّز والتباطؤ.'
+ }
+ };
+
+ let map=null, heatLayer=null, canvas=null, ctx=null;
+ let mode='heatmap', zoneKey='maarif', currentData=null, heatPoints=[], stepIndex=0;
+ let playing=false, raf=null, lastFrame=0;
+ const MAX_HEAT_POINTS=12000;
+ const MAX_VEHICLES_PER_FRAME=1600;
+
+ function byId(id){ return document.getElementById(id); }
+ function setText(id,value){ const el=byId(id); if(el) el.textContent=value; }
+ function setHidden(id,hidden){ const el=byId(id); if(el) el.classList.toggle('egs-hidden', !!hidden); }
+ function safeNumber(n, fallback=0){ const v=Number(n); return Number.isFinite(v)?v:fallback; }
+ function fr(n){ return Number(n||0).toLocaleString('fr-FR'); }
+
+ async function loadJson(file){
+ try{
+ const response = await fetch(file + '?v=' + Date.now(), { cache:'no-store' });
+ if(!response.ok) throw new Error('HTTP ' + response.status);
+ return await response.json();
+ }catch(error){
+ console.warn('[EGS SUMO] External JSON unavailable; using sample data:', file, error);
+ return null;
+ }
+ }
+
+ function seeded(seed){
+ let s=seed>>>0;
+ return function(){
+ s=(s*1664525+1013904223)>>>0;
+ return s/4294967296;
+ };
+ }
+
+ function zoneSeed(key){
+ return Array.from(key).reduce((a,c)=>a+c.charCodeAt(0), 2166136261)>>>0;
+ }
+
+ function sampleHeatData(zone){
+ const rand=seeded(zoneSeed(zoneKey));
+ const [lat0,lng0]=zone.center;
+ const points=[];
+ const corridors=[
+ {a:-0.018,b:-0.012,c:1.00},
+ {a: 0.015,b:-0.006,c:.75},
+ {a:-0.012,b: 0.015,c:.58},
+ {a: 0.020,b: 0.011,c:.42}
+ ];
+ for(let i=0;i<900;i++){
+ const road=corridors[i%corridors.length];
+ const t=(rand()*2-1);
+ const jitterLat=(rand()-.5)*0.0034;
+ const jitterLng=(rand()-.5)*0.0034;
+ const lat=lat0 + road.a*t + jitterLat;
+ const lng=lng0 + road.b*t + jitterLng;
+ const intensity=Math.max(.08, Math.min(1, road.c*(.45+rand()*.65)));
+ points.push([lat,lng,intensity]);
+ }
+ return {
+ sample:true,
+ points,
+ kpis:{ vehicleRecords:5400, steps:180, averageSpeed:7.35 }
+ };
+ }
+
+ function sampleSimulationData(zone){
+ const rand=seeded(zoneSeed(zoneKey)+99);
+ const [lat0,lng0]=zone.center;
+ const timesteps=[];
+ const routes=[
+ {a:-0.018,b:-0.011,phase:0,speed:7.4},
+ {a: 0.016,b:-0.006,phase:1.1,speed:5.8},
+ {a:-0.011,b: 0.016,phase:2.4,speed:9.2},
+ {a: 0.020,b: 0.010,phase:3.2,speed:4.9}
+ ];
+ const vehicleCount=110;
+ for(let t=0;t<220;t++){
+ const vehicles=[];
+ for(let i=0;i<vehicleCount;i++){
+ const route=routes[i%routes.length];
+ const progress=((t*0.006*(route.speed/6))+(i/vehicleCount)+route.phase)%1;
+ const x=(progress*2-1);
+ const pulse=Math.sin((t+i)*0.08);
+ const lat=lat0 + route.a*x + (rand()-.5)*0.00022 + Math.sin(progress*Math.PI*2+route.phase)*0.0011;
+ const lng=lng0 + route.b*x + (rand()-.5)*0.00022 + Math.cos(progress*Math.PI*2+route.phase)*0.0011;
+ const speed=Math.max(.8, route.speed + pulse*2.2 - (i%17===0?3.2:0));
+ const angle=Math.atan2(route.b, route.a)*180/Math.PI + 90;
+ vehicles.push({ id:'sample-'+i, lat, lng, speed, angle });
+ }
+ timesteps.push({ time:t, vehicles });
+ }
+ return {
+ sample:true,
+ timesteps,
+ kpis:{ vehicleRecords:vehicleCount*timesteps.length, steps:timesteps.length, averageSpeed:6.83 }
+ };
+ }
+
+ function initMap(){
+ const container=byId('egsSumoMap');
+ if(!container) return false;
+ if(!window.L || !L.map){
+ container.innerHTML='<div style="display:grid;place-items:center;height:100%;min-height:430px;padding:24px;text-align:center;color:#00FF88;background:#050505;border:1px solid #004400;font-family:monospace;line-height:1.6">Leaflet could not load from the CDN. Check your internet connection or host Leaflet locally.</div>';
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'مكتبة Leaflet غير متاحة. تحتاج لوحة SUMO إلى leaflet.min.js قبل leaflet-heat.js.' : 'Leaflet library unavailable. The SUMO panel needs leaflet.min.js before leaflet-heat.js.');
+ return false;
+ }
+ if(map) return true;
+ const z=EGS_ZONES[zoneKey];
+ map=L.map('egsSumoMap',{
+ center:z.center,
+ zoom:z.zoom,
+ zoomControl:true,
+ attributionControl:false,
+ preferCanvas:true
+ });
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom:19 }).addTo(map);
+ canvas=byId('egsTrafficCanvas');
+ if(canvas) ctx=canvas.getContext('2d');
+ resizeCanvas();
+ map.on('move zoom resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
+ window.addEventListener('resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
+ setTimeout(()=>map.invalidateSize(),150);
+ return true;
+ }
+
+ function resizeCanvas(){
+ if(!canvas || !ctx) return;
+ const rect=canvas.getBoundingClientRect();
+ const dpr=window.devicePixelRatio || 1;
+ canvas.width=Math.max(1, Math.round(rect.width*dpr));
+ canvas.height=Math.max(1, Math.round(rect.height*dpr));
+ ctx.setTransform(dpr,0,0,dpr,0,0);
+ }
+
+ function clearCanvas(){
+ if(!ctx || !canvas) return;
+ const rect=canvas.getBoundingClientRect();
+ ctx.clearRect(0,0,rect.width,rect.height);
+ }
+
+ function removeHeat(){
+ if(heatLayer && map){
+ map.removeLayer(heatLayer);
+ heatLayer=null;
+ }
+ }
+
+ function updateUI(){
+ const isHeat=mode==='heatmap';
+ const z=EGS_ZONES[zoneKey];
+ document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
+ btn.classList.toggle('active', btn.dataset.egsMode===mode);
+ btn.setAttribute('aria-pressed', String(btn.dataset.egsMode===mode));
+ });
+ document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
+ btn.classList.toggle('active', btn.dataset.egsZone===zoneKey);
+ btn.setAttribute('aria-pressed', String(btn.dataset.egsZone===zoneKey));
+ });
+
+ setHidden('egsHeatControls', !isHeat);
+ setHidden('egsSimulationControls', isHeat);
+ setHidden('egsHeatLegend', !isHeat);
+ setHidden('egsSimulationLegend', isHeat);
+
+ setText('egsZoneTitle', z.label);
+ setText('egsAnalysisText', document.body.classList.contains('rtl') ? (z.analysisAr || z.analysis) : z.analysis);
+ setText('egsMainLabel', document.body.classList.contains('rtl') ? (isHeat ? 'النقاط' : 'الظاهر') : (isHeat ? 'POINTS' : 'VISIBLE'));
+ setText('egsKpiMain','—');
+ setText('egsKpiVehicles','—');
+ setText('egsKpiSteps','—');
+ setText('egsKpiSpeed','—');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? (isHeat ? 'حرارة' : 'محاكاة') : (isHeat ? 'HEAT' : 'SIM'));
+ setText('egsStatusTitle', z.label + ' · ' + (document.body.classList.contains('rtl') ? (isHeat ? 'خريطة حرارية' : 'محاكاة') : (isHeat ? 'Heatmap' : 'Simulation')));
+ }
+
+ async function loadCurrent(){
+ if(!map) return;
+ cancelAnimationFrame(raf);
+ raf=null;
+ playing=false;
+ stepIndex=0;
+ removeHeat();
+ clearCanvas();
+ updateUI();
+ const z=EGS_ZONES[zoneKey];
+ map.setView(z.center,z.zoom);
+ if(mode==='heatmap') await loadHeatmap();
+ else await loadSimulation();
+ setTimeout(()=>map.invalidateSize(),100);
+ }
+
+ async function loadHeatmap(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل الخريطة الحرارية من SUMO...' : 'Loading SUMO heatmap...');
+ const external=await loadJson(z.heatmapFile);
+ currentData=(external && Array.isArray(external.points)) ? external : sampleHeatData(z);
+ heatPoints=normalizeHeat(currentData.points || []);
+ if(currentData.sample){
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض خريطة حرارية عيّنية لأن الملف '+z.heatmapFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Sample heatmap shown because '+z.heatmapFile+' was not found or cannot be fetched locally.'));
+ }else{
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.heatmapFile) : ('Loaded real data: '+z.heatmapFile));
+ }
+ drawHeatmap();
+ updateHeatKpis();
+ }
+
+ function normalizeHeat(points){
+ const arr=[];
+ for(const p of points){
+ if(!Array.isArray(p) || p.length<2) continue;
+ const lat=safeNumber(p[0], NaN);
+ const lng=safeNumber(p[1], NaN);
+ const intensity=safeNumber(p[2], .4);
+ if(Number.isFinite(lat) && Number.isFinite(lng)){
+ arr.push([lat,lng,Math.max(.05,Math.min(intensity,1))]);
+ }
+ }
+ if(arr.length<=MAX_HEAT_POINTS) return arr;
+ const interval=Math.ceil(arr.length/MAX_HEAT_POINTS);
+ return arr.filter((_,i)=>i%interval===0).slice(0,MAX_HEAT_POINTS);
+ }
+
+ function drawHeatmap(){
+ removeHeat();
+ clearCanvas();
+ if(!map || !heatPoints.length) return;
+ const radius=safeNumber(byId('egsRadiusRange')?.value,18);
+ const blur=safeNumber(byId('egsBlurRange')?.value,20);
+ const mult=safeNumber(byId('egsIntensityRange')?.value,5)/8;
+ const points=heatPoints.map(p=>[p[0],p[1],Math.min(1,p[2]*mult)]);
+
+ if(L.heatLayer){
+ heatLayer=L.heatLayer(points,{
+ radius, blur, maxZoom:18, minOpacity:.08, max:1,
+ gradient:{0.15:'#00FF88',0.35:'#FFD700',0.60:'#FF8A00',1:'#FF3355'}
+ }).addTo(map);
+ }else{
+ heatLayer=L.layerGroup(points.slice(0,350).map(p=>
+ L.circleMarker([p[0],p[1]],{
+ radius:Math.max(2, radius/5),
+ stroke:false,
+ fill:true,
+ fillOpacity:Math.max(.25, Math.min(.85,p[2])),
+ fillColor:p[2]>.65?'#FF3355':p[2]>.35?'#FFD700':'#00FF88'
+ })
+ )).addTo(map);
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'إضافة Leaflet للخرائط الحرارية غير متاحة. يتم عرض النقاط مباشرة.' : 'Leaflet heat plugin unavailable. Showing point view.');
+ }
+ fitPoints(points);
+ }
+
+ function updateHeatKpis(){
+ const k=currentData?.kpis || {};
+ setText('egsKpiMain',fr(heatPoints.length));
+ setText('egsKpiVehicles',fr(k.vehicleRecords || heatPoints.length));
+ setText('egsKpiSteps',fr(k.steps || 0));
+ setText('egsKpiSpeed',safeNumber(k.averageSpeed,0).toFixed(2)+' m/s');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'حرارة' : 'HEAT');
+ }
+
+ async function loadSimulation(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل محاكاة SUMO الجغرافية...' : 'Loading SUMO geo simulation...');
+ const external=await loadJson(z.simulationFile);
+ currentData=(external && Array.isArray(external.timesteps)) ? external : sampleSimulationData(z);
+ if(currentData.sample){
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض محاكاة عيّنية لأن الملف '+z.simulationFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Sample simulation shown because '+z.simulationFile+' was not found or cannot be fetched locally.'));
+ }else{
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.simulationFile) : ('Loaded real data: '+z.simulationFile));
+ }
+ setText('egsKpiSteps',fr(currentData.timesteps.length));
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
+ if(currentData.kpis){
+ setText('egsKpiVehicles',fr(currentData.kpis.vehicleRecords || 0));
+ setText('egsKpiSpeed',safeNumber(currentData.kpis.averageSpeed,0).toFixed(2)+' m/s');
+ }
+ setTimeout(()=>{
+ resizeCanvas();
+ fitSimulation();
+ playing=true;
+ startAnimation();
+ },160);
+ }
+
+ function getLL(vehicle){
+ const lat=safeNumber(vehicle?.lat, NaN);
+ const lng=safeNumber(vehicle?.lng, NaN);
+ return Number.isFinite(lat) && Number.isFinite(lng) ? [lat,lng] : null;
+ }
+
+ function fitSimulation(){
+ if(!currentData?.timesteps?.length) return;
+ const points=[];
+ for(const step of currentData.timesteps){
+ for(const vehicle of (step.vehicles || [])){
+ const ll=getLL(vehicle);
+ if(ll) points.push(ll);
+ }
+ if(points.length>3000) break;
+ }
+ fitPoints(points);
+ drawStep();
+ }
+
+ function drawStep(){
+ if(mode!=='simulation' || !currentData?.timesteps?.length || !map || !ctx) return;
+ const step=currentData.timesteps[stepIndex % currentData.timesteps.length];
+ if(!step) return;
+ clearCanvas();
+ const vehicles=sampleVehicles(step.vehicles || [], MAX_VEHICLES_PER_FRAME);
+ let n=0, sum=0;
+ for(const vehicle of vehicles){
+ const ll=getLL(vehicle);
+ if(!ll) continue;
+ const pt=map.latLngToContainerPoint(ll);
+ const speed=safeNumber(vehicle.speed,0);
+ const angle=safeNumber(vehicle.angle,0);
+ if(!Number.isFinite(pt.x) || !Number.isFinite(pt.y)) continue;
+ drawVehicle(pt.x,pt.y,speed,angle);
+ n++;
+ sum+=speed;
+ }
+ setText('egsKpiMain',fr(n));
+ setText('egsKpiVehicles',fr(n));
+ setText('egsKpiSpeed',(n?sum/n:0).toFixed(2)+' m/s');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
+ }
+
+ function sampleVehicles(vehicles,max){
+ if(vehicles.length<=max) return vehicles;
+ const interval=Math.ceil(vehicles.length/max);
+ return vehicles.filter((_,i)=>i%interval===0);
+ }
+
+ function colorSpeed(speed){
+ return speed<3 ? '#FF3355' : speed<8 ? '#FFD700' : '#00FF88';
+ }
+
+ function drawVehicle(x,y,speed,angle){
+ const size=safeNumber(byId('egsVehicleSizeRange')?.value,6);
+ const color=colorSpeed(speed);
+ const a=(safeNumber(angle,0)-90)*Math.PI/180;
+ ctx.save();
+ ctx.translate(x,y);
+ ctx.rotate(a);
+ ctx.fillStyle=color;
+ ctx.strokeStyle='rgba(255,255,255,.95)';
+ ctx.lineWidth=1.4;
+ ctx.shadowBlur=10;
+ ctx.shadowColor=color;
+ roundedRect(-size,-size/2,size*2.4,size*1.15,Math.max(2,size/2));
+ ctx.fill();
+ ctx.stroke();
+ ctx.restore();
+ }
+
+ function roundedRect(x,y,w,h,r){
+ ctx.beginPath();
+ ctx.moveTo(x+r,y);
+ ctx.lineTo(x+w-r,y);
+ ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+ ctx.lineTo(x+w,y+h-r);
+ ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+ ctx.lineTo(x+r,y+h);
+ ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+ ctx.lineTo(x,y+r);
+ ctx.quadraticCurveTo(x,y,x+r,y);
+ ctx.closePath();
+ }
+
+ function startAnimation(){
+ cancelAnimationFrame(raf);
+ lastFrame=0;
+ raf=requestAnimationFrame(loop);
+ }
+
+ function loop(timestamp){
+ if(mode!=='simulation' || !currentData?.timesteps?.length) return;
+ const delay=Math.max(20,280-safeNumber(byId('egsSpeedRange')?.value,6)*20);
+ if(playing && timestamp-lastFrame>=delay){
+ drawStep();
+ stepIndex=(stepIndex+1)%currentData.timesteps.length;
+ lastFrame=timestamp;
+ }
+ raf=requestAnimationFrame(loop);
+ }
+
+ function fitPoints(points){
+ if(!map || !points || !points.length) return;
+ const bounds=L.latLngBounds(points.map(p=>[p[0],p[1]]));
+ if(bounds.isValid()) map.fitBounds(bounds,{ padding:[30,30], maxZoom:EGS_ZONES[zoneKey].zoom });
+ }
+
+ function bindEvents(){
+ document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+ mode=btn.dataset.egsMode || 'heatmap';
+ loadCurrent();
+ });
+ });
+ document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+ zoneKey=btn.dataset.egsZone || 'maarif';
+ loadCurrent();
+ });
+ });
+ ['egsRadiusRange','egsBlurRange','egsIntensityRange'].forEach(id=>{
+ const el=byId(id);
+ if(el) el.addEventListener('input',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ });
+ const resetHeat=byId('egsResetHeatmapBtn');
+ if(resetHeat) resetHeat.addEventListener('click',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ const play=byId('egsPlayBtn');
+ if(play) play.addEventListener('click',()=>{ playing=true; if(mode==='simulation' && !raf) startAnimation(); });
+ const pause=byId('egsPauseBtn');
+ if(pause) pause.addEventListener('click',()=>{ playing=false; });
+ const restart=byId('egsRestartBtn');
+ if(restart) restart.addEventListener('click',()=>{ stepIndex=0; drawStep(); });
+ const vehicleSize=byId('egsVehicleSizeRange');
+ if(vehicleSize) vehicleSize.addEventListener('input',drawStep);
+ const resetSim=byId('egsResetSimulationBtn');
+ if(resetSim) resetSim.addEventListener('click',fitSimulation);
+ }
+
+ document.addEventListener('DOMContentLoaded',()=>{
+ const panel=byId('sumo-dashboard');
+ if(!panel) return;
+ bindEvents();
+ const boot=()=>{
+ if(initMap()) loadCurrent();
+ };
+ if('IntersectionObserver' in window){
+ const observer=new IntersectionObserver(entries=>{
+ if(entries[0] && entries[0].isIntersecting){
+ boot();
+ observer.disconnect();
+ }
+ },{threshold:.10});
+ observer.observe(panel);
+ }else{
+ boot();
+ }
+ });
+})();
+</script>
+<script>
+(function(){
+  const btn=document.getElementById('langBtn');
+  if(!btn) return;
+  function setLang(ar){
+    document.body.classList.toggle('rtl', ar);
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-en]').forEach(el=>{el.textContent = ar ? el.dataset.ar : el.dataset.en;});
+    btn.setAttribute('aria-label', ar ? 'Switch to English' : 'التبديل إلى العربية');
+    btn.textContent = ar ? 'EN' : 'AR';
+    btn.setAttribute('aria-pressed', String(ar));
+    document.title = ar ? 'الغالي ساني | محفظة جامعة السلطان قابوس للصكوك الخضراء والخدمات الرقمية العُمانية' : 'El Ghali Sany | SQU Green Sukuk and Project Finance Portfolio';
+  }
+  btn.addEventListener('click',()=>setLang(!document.body.classList.contains('rtl')));
+})();
+</script>
+</body>
+</html>
